@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --cor-fundo: #1a1a2e;
+  --cor-hover: #cccccc;
+  --cor-texto: #ffffff;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background-color: var(--cor-fundo);
+}

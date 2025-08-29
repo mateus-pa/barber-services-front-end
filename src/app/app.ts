@@ -5,7 +5,7 @@ import { Cabecalho } from './componentes/cabecalho/cabecalho';
   selector: 'app-root',
   imports: [Cabecalho],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
   protected readonly title = signal('barberServices');
