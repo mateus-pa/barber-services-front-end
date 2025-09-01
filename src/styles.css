@@ -1,12 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 :root {
   --cor-fundo: #1a1a2e;
   --cor-hover: #cccccc;
   --cor-texto: #ffffff;
+
+  --font-principal: 'Lora', serif;
 }
 
-body,
-html {
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-size: 1rem;
+  font-weight: 400;
   margin: 0;
   padding: 0;
   background-color: var(--cor-fundo);
+  font-family: var(--font-principal);
+}
+
+main {
+  flex-grow: 1;
+  text-align: center;
 }
