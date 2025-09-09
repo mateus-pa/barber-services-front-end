@@ -27,6 +27,7 @@ footer {
 .infos__contatos__item a {
   text-decoration: none;
   color: var(--cor-secundaria);
+  transition: all 0.2s ease-in-out;
 }
 
 .infos__contatos__item a:hover {

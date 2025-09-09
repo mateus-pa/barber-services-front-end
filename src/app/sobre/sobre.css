@@ -1,0 +1,24 @@
+.sobre {
+  text-align: justify;
+  margin: 2.5rem 12rem;
+  color: var(--cor-secundaria);
+}
+
+.sobre h2 {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cor-quaternaria);
+}
+
+.sobre h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cor-quaternaria);
+}
+
+.sobre strong {
+  font-size: 1rem;
+  font-weight: 650;
+  color: var(--cor-quaternaria);
+}

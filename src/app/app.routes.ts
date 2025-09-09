@@ -1,11 +1,16 @@
-import { provideRouter, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
 
-export const routes: Routes = [
-  // { path: 'home', component: HomeComponent },
-  // { path: 'about', component: AboutComponent },
-  // { path: '', redirectTo: '/home', pathMatch: 'full' }
-];
+export const routes: Routes = [];
 
-export const appRoutingProviders = [
-  provideRouter(routes)
-];
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled',
+      scrollOffset: [0, 64],
+    }),
+  ],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
