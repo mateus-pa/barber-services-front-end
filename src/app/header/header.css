@@ -1,0 +1,31 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.1rem 10rem;
+    align-items: center;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-primaria);
+}
+
+header h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+header nav {
+    display: flex;
+    gap: 1.1rem;
+    margin-right: 10rem;
+}
+
+header nav a {
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.2s ease-in-out;
+}
+
+header nav a:hover {
+    color: var(--cor-terciaria);
+}

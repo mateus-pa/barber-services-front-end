@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --fonte-principal: 'Inter', sans-serif;
+
+    --cor-primaria: #D2D3D4;
+    --cor-secundaria: #2D3237;
+    --cor-terciaria: #626970;
+    --cor-quintaria: #A7B9CB;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: var(--fonte-principal);
+    font-size: 1rem;
+    font-weight: 400;
+}
