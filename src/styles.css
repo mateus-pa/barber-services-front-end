@@ -1,17 +1,18 @@
 :root {
-    --fonte-principal: 'Inter', sans-serif;
+  --fonte-principal: 'Inter', sans-serif;
 
-    --cor-primaria: #D2D3D4;
-    --cor-secundaria: #2D3237;
-    --cor-terciaria: #626970;
-    --cor-quintaria: #A7B9CB;
+  --cor-primaria: #d2d3d4;
+  --cor-secundaria: #2d3237;
+  --cor-terciaria: #626970;
+  --cor-quaternaria: #001143;
+  --cor-quintaria: #a7b9cb;
 }
 
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 
-    font-family: var(--fonte-principal);
-    font-size: 1rem;
-    font-weight: 400;
+  font-family: var(--fonte-principal);
+  font-size: 1rem;
+  font-weight: 400;
 }
