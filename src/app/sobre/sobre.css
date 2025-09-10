@@ -1,32 +1,15 @@
 .sobre {
   text-align: justify;
-  margin: 2.5rem 20rem;
+  margin: 2.5rem 0;
   color: var(--cor-secundaria);
-  max-width: 60%;
+  max-width: 1000px;
 }
 
 .sobre h2 {
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: var(--cor-quaternaria);
-}
-
-.scrollAnimate {
-  animation: text-appear both;
-  animation-timeline: view();
-  animation-range: entry 20% cover 100vh;
-}
-
-@keyframes text-appear {
-  from {
-    opacity: 0;
-    transform: translateY(100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .sobre h3 {

@@ -4,10 +4,11 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { Header } from './header/header';
 import { Footer } from './footer/footer';
 import { Sobre } from './sobre/sobre';
+import { Funcoes } from './funcoes/funcoes';
 
 @Component({
   selector: 'app-root',
-  imports: [TooltipModule, CommonModule, Header, Footer, Sobre],
+  imports: [TooltipModule, CommonModule, Header, Footer, Sobre, Funcoes],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
