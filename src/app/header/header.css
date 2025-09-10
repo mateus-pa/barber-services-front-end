@@ -1,41 +1,42 @@
 header {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.1rem 10rem;
-    align-items: center;
-    background-color: var(--cor-secundaria);
-    color: var(--cor-primaria);
+  display: flex;
+  justify-content: space-between;
+  padding: 0.1rem 10rem;
+  align-items: center;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-primaria);
 }
 
 .info {
-    display: flex;
-    align-items: center;
-    gap: 0.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
 }
 
-header img {
-    width: 4.5rem;
+.info img {
+  width: 4.5rem;
 }
 
-header h1 {
-    font-size: 1.4rem;
-    font-weight: 700;
+.info h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
 }
 
-header nav {
-    display: flex;
-    gap: 1.1rem;
-    margin-right: 10rem;
+header nav ul {
+  display: flex;
+  gap: 1.1rem;
+  margin-right: 10rem;
+  list-style: none;
 }
 
-header nav a {
-    text-decoration: none;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 1.1rem;
-    transition: color 0.2s ease-in-out;
+header nav ul li a {
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.2s ease-in-out;
 }
 
-header nav a:hover {
-    color: var(--cor-terciaria);
+header nav ul li a:hover {
+  color: var(--cor-terciaria);
 }

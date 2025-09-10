@@ -1,16 +1,22 @@
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+import { App } from './app';
+import { Funcoes } from './funcoes/funcoes';
+import { Sobre } from './sobre/sobre';
 
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, {
-      scrollPositionRestoration: 'enabled',
-      anchorScrolling: 'enabled',
-      scrollOffset: [0, 64],
-    }),
-  ],
-  exports: [RouterModule],
-})
+export const routes: Routes = [
+  {
+    path: '',
+    component: App,
+  },
+  {
+    path: 'sobre',
+    component: Sobre,
+  },
+  {
+    path: 'funcoes',
+    component: Funcoes,
+  },
+];
+
 export class AppRoutingModule {}
