@@ -18,7 +18,7 @@ header {
 }
 
 .info h1 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
@@ -33,8 +33,8 @@ header nav ul li a {
   text-decoration: none;
   cursor: pointer;
   font-weight: 500;
-  font-size: 1.1rem;
-  transition: color 0.2s ease-in-out;
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
 }
 
 header nav ul li a:hover {
