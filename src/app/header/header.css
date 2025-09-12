@@ -1,10 +1,16 @@
 header {
   display: flex;
   justify-content: space-between;
-  padding: 0.1rem 10rem;
+  padding: 0.1rem 5rem;
   align-items: center;
   background-color: var(--cor-secundaria);
   color: var(--cor-primaria);
+
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
 .info {
@@ -25,7 +31,7 @@ header {
 header nav ul {
   display: flex;
   gap: 1.1rem;
-  margin-right: 10rem;
+  margin-right: 15rem;
   list-style: none;
 }
 

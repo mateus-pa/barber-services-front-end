@@ -1,6 +1,6 @@
 .sobre {
   text-align: justify;
-  margin: 2.5rem 0;
+  margin-top: 4rem;
   color: var(--cor-secundaria);
   max-width: 1000px;
 }
