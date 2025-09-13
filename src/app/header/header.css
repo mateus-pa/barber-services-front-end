@@ -3,13 +3,21 @@ header {
   justify-content: space-between;
   padding: 0.1rem 5rem;
   align-items: center;
-  background-color: var(--cor-secundaria);
   color: var(--cor-primaria);
 
   overflow: hidden;
-  position: fixed;
+  position: absolute;
   width: 100%;
   top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+header.sticky {
+  position: fixed;
+  background-color: var(--cor-secundaria);
+  padding: 0.2rem 5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 1000;
 }
 
