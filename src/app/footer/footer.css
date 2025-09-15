@@ -2,11 +2,15 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-  color: var(--cor-terciaria);
+  color: var(--cinza-claro);
 }
 
 .infos {
-  background-color: var(--cor-primaria);
+  background-color: var(--marrom-escuro);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
 }
 
 .infos__contatos {
@@ -26,22 +30,23 @@ footer {
 
 .infos__contatos__item a {
   text-decoration: none;
-  color: var(--cor-secundaria);
+  color: var(--cinza-claro);
   transition: all 0.2s ease-in-out;
 }
 
 .infos__contatos__item a:hover {
   text-decoration: underline;
   cursor: pointer;
-  color: var(--cor-quaternaria);
+  color: var(--ouro-destaque);
 }
 
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 16;
-  color: #1a1a1a;
+  color: var(--ouro-destaque);
 }
 
 .copyright p {
   text-align: center;
   font-size: 0.8rem;
+  color: var(--marrom-escuro);
 }

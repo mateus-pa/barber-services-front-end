@@ -6,6 +6,15 @@
   --cor-terciaria: #626970;
   --cor-quaternaria: #001143;
   --cor-quintaria: #a7b9cb;
+
+  --marrom-escuro: #4A3C32;
+  --cinza-claro: #D8D7D3;
+  --ouro-destaque: #B8860B;
+  --azul-destaque: #004D73;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html, body {

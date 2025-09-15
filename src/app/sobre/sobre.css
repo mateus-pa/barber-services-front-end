@@ -1,6 +1,6 @@
 .sobre {
   text-align: justify;
-  margin-top: 8rem;
+  margin-top: 10rem;
   color: var(--cor-secundaria);
   max-width: 1000px;
 }
@@ -9,17 +9,17 @@
   text-align: center;
   font-size: 1.7rem;
   font-weight: 700;
-  color: var(--cor-quaternaria);
+  color: var(--marrom-escuro);
 }
 
 .sobre h3 {
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--cor-quaternaria);
+  color: var(--marrom-escuro);
 }
 
 .sobre strong {
   font-size: 1rem;
   font-weight: 650;
-  color: var(--cor-quaternaria);
+  color: var(--marrom-escuro);
 }

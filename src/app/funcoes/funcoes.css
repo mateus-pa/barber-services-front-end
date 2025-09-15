@@ -1,5 +1,5 @@
 .funcoes {
-  margin: 8rem 0;
+  margin: 10rem 0;
 }
 
 .container {
@@ -14,13 +14,12 @@
 .main-title {
   font-size: 1.7rem;
   font-weight: 700;
-  color: var(--cor-quaternaria);
+  color: var(--marrom-escuro);
   margin-bottom: 40px;
   text-align: center;
 }
 
 .card {
-  background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   padding: 1.875rem;
@@ -36,7 +35,8 @@
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-  background-color: #007bff;
+  background-color: var(--marrom-escuro);
+  color: var(--ouro-destaque);
 }
 
 .material-symbols-outlined {
@@ -64,6 +64,6 @@
 }
 
 .card-details:hover {
-  color: #fff;
-  border-color: #fff;
+  color: var(--ouro-destaque);
+  border-color: var(--ouro-destaque);
 }
