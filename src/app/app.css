@@ -17,7 +17,7 @@
   background-image: url('/agendarte-banner.png');
   background-size: cover;
   background-position: center;
-  position: relative; 
+  position: relative;
 }
 
 .scrollAnimate {
@@ -29,7 +29,7 @@
 @keyframes text-appear {
   from {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translateY(200px);
   }
   to {
     opacity: 1;

@@ -1,0 +1,38 @@
+.acessar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+
+.acessar h2 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--marrom-escuro);
+}
+
+.acessar ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.acessar li a {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--cinza-claro);
+  font-weight: 700;
+  background-color: var(--marrom-escuro);
+  padding: 2.25rem 1.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.acessar li a:hover {
+  background-color: var(--ouro-destaque);
+  color: var(--marrom-escuro);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

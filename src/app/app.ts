@@ -7,10 +7,21 @@ import { Footer } from './footer/footer';
 import { Funcoes } from './funcoes/funcoes';
 import { Header } from './header/header';
 import { Sobre } from './sobre/sobre';
+import { Acessar } from './acessar/acessar';
 
 @Component({
   selector: 'app-root',
-  imports: [TooltipModule, CommonModule, Header, Footer, Sobre, Funcoes, RouterOutlet, Banner],
+  imports: [
+    TooltipModule,
+    CommonModule,
+    Header,
+    Footer,
+    Sobre,
+    Funcoes,
+    RouterOutlet,
+    Banner,
+    Acessar,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

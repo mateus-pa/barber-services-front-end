@@ -1,4 +1,4 @@
-<header [ngClass]="{'sticky': isSticky}">
+<header [ngClass]="{ sticky: isSticky }">
   <div class="info">
     <img src="./agendarte-logo.png" alt="Logo" />
     <h1>Agendarte Barber</h1>
@@ -8,7 +8,7 @@
       <li><a (click)="scrollToElement('home')">HOME</a></li>
       <li><a (click)="scrollToElement('sobre')">SOBRE</a></li>
       <li><a (click)="scrollToElement('funcoes')">FUNÇÕES</a></li>
-      <li><a>ACESSAR</a></li>
+      <li><a (click)="scrollToElement('acessar')">ACESSAR</a></li>
     </ul>
   </nav>
 </header>

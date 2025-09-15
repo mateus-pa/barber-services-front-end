@@ -7,17 +7,18 @@
   --cor-quaternaria: #001143;
   --cor-quintaria: #a7b9cb;
 
-  --marrom-escuro: #4A3C32;
-  --cinza-claro: #D8D7D3;
-  --ouro-destaque: #B8860B;
-  --azul-destaque: #004D73;
+  --marrom-escuro: #4a3c32;
+  --cinza-claro: #d8d7d3;
+  --ouro-destaque: #b8860b;
+  --azul-destaque: #004d73;
 }
 
 * {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
