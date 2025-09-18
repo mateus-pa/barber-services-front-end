@@ -1,0 +1,55 @@
+<section class="login-container">
+  <h2>Acessar sua conta</h2>
+
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="form-control"
+        ngModel
+        required
+        email
+        #emailInput="ngModel"
+        placeholder="Digite seu e-mail"
+      />
+      <div
+        *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)"
+        class="validation-message"
+      >
+        <div *ngIf="emailInput.errors?.['required']">E-mail é obrigatório.</div>
+        <div *ngIf="emailInput.errors?.['email']">Por favor, insira um e-mail válido.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="senha">Senha</label>
+      <input
+        type="password"
+        id="senha"
+        name="senha"
+        class="form-control"
+        ngModel
+        required
+        minlength="6"
+        #senhaInput="ngModel"
+        placeholder="Digite sua senha"
+      />
+      <div
+        *ngIf="senhaInput.invalid && (senhaInput.dirty || senhaInput.touched)"
+        class="validation-message"
+      >
+        <div *ngIf="senhaInput.errors?.['required']">Senha é obrigatória.</div>
+        <div *ngIf="senhaInput.errors?.['minlength']">A senha deve ter no mínimo 6 caracteres.</div>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="loginForm.invalid" class="btn-login">Entrar</button>
+  </form>
+
+  <div class="links">
+    <a href="#">Esqueci minha senha</a>
+  </div>
+</section>

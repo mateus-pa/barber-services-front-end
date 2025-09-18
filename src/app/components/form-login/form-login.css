@@ -1,0 +1,134 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+  font-family: Arial, sans-serif;
+  padding: 0 2.5rem;
+}
+
+form {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.875rem;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-login {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.125rem;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #0056b3;
+}
+
+.btn-login:active {
+  background-color: #004494;
+}
+
+.links {
+  text-align: center;
+  margin-top: 1.25rem;
+}
+
+.links a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.form-control.ng-invalid.ng-touched {
+  border-color: #dc3545;
+}
+
+.form-control.ng-valid.ng-touched {
+  border-color: #28a745;
+}
+
+.validation-message {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.validation-message div {
+  display: none;
+}
+
+.validation-message:not(:empty) div {
+  display: block;
+}
+
+.form-group label {
+  transition: color 0.3s ease;
+}
+
+.form-group.ng-invalid .form-control.ng-touched ~ label,
+.form-group .form-control.ng-invalid.ng-touched ~ label {
+  color: #dc3545;
+}
+
+.form-group .form-control.ng-valid.ng-touched ~ label {
+  color: #28a745;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
