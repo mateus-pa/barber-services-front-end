@@ -1,59 +1,45 @@
-# BarberServices
+![Agendarte Barber](https://i.imgur.com/12FcLCx.png)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.6.
+<p align="center"><b>Projeto Agendarte Barber - Angular 💈 </b></p>
 
-## Development server
+## 📝Sobre
 
-To start a local development server, run:
+Projeto autoral de finalização do curso Ford Enter:
 
-```bash
-ng serve
-```
+- Angular CLI
+- CSS scroll effects
+- Tipagem e orientação à objetos Typescript
+- Token de autenticação JWT
+- Prettier para padronização
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## ⚙️Funcionalidades
 
-## Code scaffolding
+- Recurso de experts para: criação, alteração, listagem completa e busca por ID
+- Recurso de queues para: criação, listagem e busca de fila do expert do dia atual
+- Recurso de queues customers para: adicionar, atender e remover cliente da fila do dia
+- Recurso de users para: criação de usuário para rotas autenticadas
+- Recurso de auth para: login, validação e payload com profile do usuário logado
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 👨🏽‍💻Tecnologias
 
-```bash
-ng generate component component-name
-```
+- Typescript
+- CSS
+- HTML
+- Angular
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🔧Requisitos
 
-```bash
-ng generate --help
-```
+- npm instalado na sua máquina
+- node instalado na sua máquina
+- angular cli instalado na sua máquina
+- editor de código instalado na sua máquina (recomendação: Visual Studio Code)
 
-## Building
+## 🖥️Como instalar
 
-To build the project run:
+1. Clone este repositório;
+2. Certifique-se de ter o Node.js e o Angular CLI instalados em seu sistema;
+3. Na raiz do projeto, execute `npm install` para instalar as dependências que estão listadas em `Tecnologias utilizadas` deste README;
+4. Inicie o servidor no terminal com o comando `npm start`;
+5. O sistema estará disponível em `http://localhost:4200`.
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Certifique-se de que você possui todas as dependências instaladas (incluindo às necessàrias para seu controle local).
