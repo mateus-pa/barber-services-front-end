@@ -3,10 +3,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-color: #f0f2f5;
-  font-family: Arial, sans-serif;
+  background: transparent;
   padding: 0 2.5rem;
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--marrom-intermediario);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-top: 5rem;
+  width: 420px;
+  gap: 1.875rem;
 }
 
 mat-form-field {
@@ -18,11 +23,8 @@ form {
   align-items: start;
   justify-content: center;
   flex-direction: column;
-  gap: 1.25rem;
-  background: #fff;
-  padding: 2.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  gap: 1.875rem;
+  padding: 0 2.5rem;
   width: 100%;
   max-width: 400px;
   box-sizing: border-box;
@@ -30,8 +32,8 @@ form {
 
 h2 {
   text-align: center;
-  margin-bottom: 1.875rem;
-  color: #333;
+  color: #fff;
+  margin-top: 1.875rem;
 }
 
 .btn-login {
@@ -40,29 +42,29 @@ h2 {
   border: none;
   border-radius: 4px;
   font-size: 1.125rem;
-  background-color: #007bff;
+  background-color: var(--marrom-claro);
   color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.4s ease-in-out;
 }
 
 .btn-login:hover {
-  background-color: #0056b3;
+  background-color: var(--marrom-intermediario);
 }
 
 .btn-login:active {
-  background-color: #004494;
+  background-color: var(--marrom-intermediario);
 }
 
 .links {
   text-align: center;
-  margin-top: 1.25rem;
+  margin-bottom: 1.875rem;
 }
 
 .links a {
   color: #007bff;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.925rem;
 }
 
 .links a:hover {
