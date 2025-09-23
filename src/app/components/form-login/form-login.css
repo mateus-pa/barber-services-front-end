@@ -68,3 +68,7 @@ h2 {
 .links a:hover {
   text-decoration: underline;
 }
+
+:host ::ng-deep .mat-form-field-suffix .mat-icon-button {
+  display: none;
+}
