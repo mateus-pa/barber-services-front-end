@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Footer } from '../../components/footer/footer';
-import { Header } from '../../components/header/header';
 import { FormLogin } from '../../components/form-login/form-login';
+import { Header } from '../../components/header/header';
 
 @Component({
   selector: 'app-login',
