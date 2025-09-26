@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,14 +23,14 @@ import { merge } from 'rxjs';
   templateUrl: './form-login.html',
   styleUrl: './form-login.css',
 })
-export class FormLogin {
-  ngOnInit(): void {}
-
+export class FormLogin implements OnInit {
   constructor() {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateErrorMessage());
   }
+
+  ngOnInit(): void {}
 
   readonly email = new FormControl('', [Validators.required, Validators.email]);
   errorMessage = signal('');

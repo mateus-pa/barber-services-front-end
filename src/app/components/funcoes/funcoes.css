@@ -21,22 +21,23 @@
 
 .card {
   border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px var(--marrom-intermediario);
   padding: 1.875rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  color: var(--marrom-escuro);
+  transition: all 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-  background-color: var(--marrom-escuro);
-  color: var(--ouro-destaque);
+  box-shadow: 0 8px 12px var(--marrom-escuro);
+  background-color: var(--marrom-intermediario);
+  color: var(--marrom-muito-claro);
 }
 
 .material-symbols-outlined {
@@ -54,16 +55,15 @@
 
 .card-details {
   font-size: 0.9rem;
-  color: var(--cor-terciaria);
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 700;
-  border-bottom: 2px solid var(--cor-terciaria);
+  border-bottom: 2px solid var(--marrom-escuro);
   padding-bottom: 2px;
-  transition: color 0.3s ease, border-color 0.3s ease;
+  color: var(--marrom-escuro);
 }
 
-.card-details:hover {
-  color: var(--ouro-destaque);
-  border-color: var(--ouro-destaque);
+.card:hover .card-details {
+  color: var(--marrom-muito-claro);
+  border-bottom: 2px solid var(--marrom-muito-claro);
 }

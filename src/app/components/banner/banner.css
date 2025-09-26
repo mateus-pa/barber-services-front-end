@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  color: #fff;
+  color: var(--marrom-muito-claro);
 }
 
 .banner-content h2 {
@@ -14,4 +14,5 @@
 
 .banner-content p {
   font-size: 1.1rem;
+  color: var(--bege-destaque);
 }

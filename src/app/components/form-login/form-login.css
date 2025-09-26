@@ -7,7 +7,7 @@
   padding: 0 2.5rem;
   backdrop-filter: blur(20px);
   border: 2px solid var(--marrom-intermediario);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 6px var(--marrom-escuro);
   border-radius: 10px;
   margin-top: 5rem;
   width: 420px;
@@ -43,13 +43,15 @@ h2 {
   border-radius: 4px;
   font-size: 1.125rem;
   background-color: var(--marrom-claro);
+  box-shadow: 0 2px 4px var(--marrom-intermediario);
   color: #fff;
   cursor: pointer;
-  transition: background-color 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-login:hover {
   background-color: var(--marrom-intermediario);
+  box-shadow: 0 4px 6px var(--marrom-escuro);
 }
 
 .btn-login:active {
