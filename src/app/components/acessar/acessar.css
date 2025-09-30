@@ -25,14 +25,13 @@
   text-decoration: none;
   color: var(--cinza-claro);
   font-weight: 700;
-  background-color: var(--marrom-escuro);
+  background-color: var(--marrom-intermediario);
   padding: 2.25rem 1.5rem;
   border-radius: 8px;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .acessar li a:hover {
-  background-color: var(--ouro-destaque);
-  color: var(--marrom-escuro);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--marrom-escuro);
+  box-shadow: 0 4px 6px var(--marrom-intermediario);
 }

@@ -4,6 +4,7 @@
   color: var(--marrom-escuro);
   font-weight: 500;
   max-width: 1000px;
+  display: inline-block;
 }
 
 .sobre h2 {
