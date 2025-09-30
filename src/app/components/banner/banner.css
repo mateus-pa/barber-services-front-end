@@ -14,5 +14,6 @@
 
 .banner-content p {
   font-size: 1.1rem;
+  font-family: var(--fonte-secundaria);
   color: var(--bege-destaque);
 }

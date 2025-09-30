@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
+import { Header } from '../../components/header/header';
+import { Footer } from '../../components/footer/footer';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  imports: [Header, Footer],
   templateUrl: './dashboard.html',
-  styleUrl: './dashboard.css'
+  styleUrl: './dashboard.css',
 })
-export class Dashboard {
-
-}
+export class Dashboard {}
