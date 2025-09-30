@@ -1,24 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
 import { merge } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-form-cadastro',
-  imports: [
-    FormsModule,
-    CommonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    ReactiveFormsModule,
-  ],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule],
   templateUrl: './form-cadastro.html',
   styleUrl: './form-cadastro.css',
 })
@@ -47,12 +35,6 @@ export class FormCadastro {
     } else {
       this.errorMessage.set('');
     }
-  }
-
-  hide = signal(true);
-  clickEvent(event: MouseEvent) {
-    this.hide.set(!this.hide());
-    event.stopPropagation();
   }
 
   onSubmit(form: NgForm): void {

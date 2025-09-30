@@ -1,39 +1,30 @@
-<section class="login-container">
-  <h2>Acessar sua conta</h2>
+<section class="cadastro-container">
+  <h2>Cadastre sua conta</h2>
 
   <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-    <mat-form-field>
-      <mat-label>Digite seu email</mat-label>
+    <div class="form-field">
+      <label for="input-email">Email</label>
       <input
-        matInput
+        id="input-email"
+        type="email"
+        class="text-input"
         placeholder="email@example.com"
         [formControl]="email"
         (blur)="updateErrorMessage()"
         required
       />
       @if (email.invalid) {
-      <mat-error>{{ errorMessage() }}</mat-error>
+      <div class="error-message">{{ errorMessage() }}</div>
       }
-    </mat-form-field>
+    </div>
 
-    <mat-form-field>
-      <mat-label>Digite sua senha</mat-label>
-      <input matInput [type]="hide() ? 'password' : 'text'" formControlName="password" />
-      <button
-        matIconButton
-        matSuffix
-        (click)="clickEvent($event)"
-        [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hide()"
-      >
-        <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
-      </button>
-    </mat-form-field>
+    <div class="form-field">
+      <label for="input-password">Senha</label>
+      <input id="input-password" class="text-input" type="password" formControlName="password" />
+    </div>
 
-    <button type="submit" [disabled]="loginForm.invalid" class="btn-login">Entrar</button>
+    <button type="submit" [disabled]="loginForm.invalid" class="btn-cadastrar">Cadastrar</button>
   </form>
 
-  <div class="links">
-    <a href="#">Esqueci minha senha</a>
-  </div>
+  <div class="lgpd"></div>
 </section>
