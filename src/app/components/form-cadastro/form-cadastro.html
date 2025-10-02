@@ -1,7 +1,7 @@
 <section class="cadastro-container">
   <h2>Cadastre sua conta</h2>
 
-  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+  <form [formGroup]="cadastroFormGroup" (ngSubmit)="onSubmit()">
     <div class="form-field">
       <label for="input-name">Nome</label>
       <input
@@ -11,6 +11,8 @@
         #input
         maxlength="50"
         placeholder="Ex. Maria Souza"
+        [formControl]="nome"
+        required
         (input)="onInput($event)"
       />
     </div>
@@ -23,6 +25,7 @@
         class="text-input"
         placeholder="email@example.com"
         [formControl]="email"
+        required
         (blur)="updateErrorMessage()"
         required
       />
@@ -43,24 +46,26 @@
         name="aceiteTermos"
         [formControl]="aceiteTermos"
         required
-        onchange="toggleButton()"
+        (change)="toggleButton()"
       />
       <label for="aceiteTermos">
         Li e aceito integralmente os
         <a
           href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
           target="_blank"
-          ><strong>Termos de Serviço</strong></a
+          >Termos de Serviço</a
         >
         e a
         <a
           href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm/"
           target="_blank"
-          ><strong>Política de Privacidade</strong></a
+          >Política de Privacidade</a
         >.
       </label>
     </div>
 
-    <button type="submit" [disabled]="loginForm.invalid" class="btn-cadastrar">Cadastrar</button>
+    <button type="submit" [disabled]="cadastroFormGroup.invalid" class="btn-cadastrar">
+      Cadastrar
+    </button>
   </form>
 </section>

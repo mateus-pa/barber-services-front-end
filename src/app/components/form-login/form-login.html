@@ -1,7 +1,7 @@
 <section class="cadastro-container">
-  <h2>Cadastre sua conta</h2>
+  <h2>Acesse sua conta</h2>
 
-  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+  <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()">
     <div class="form-field">
       <label for="input-email">Email</label>
       <input
@@ -20,11 +20,11 @@
 
     <div class="form-field">
       <label for="input-password">Senha</label>
-      <input id="input-password" class="text-input" type="password" formControlName="password" />
+      <input id="input-password" class="text-input" type="password" [formControl]="senha" />
     </div>
 
-    <button type="submit" [disabled]="loginForm.invalid" class="btn-cadastrar">Cadastrar</button>
-  </form>
+    <label class="text-cadastro">Não tem conta? <a routerLink="/cadastro">Cadastrar</a></label>
 
-  <div class="lgpd"></div>
+    <button type="submit" [disabled]="loginFormGroup.invalid" class="btn-login">Entrar</button>
+  </form>
 </section>

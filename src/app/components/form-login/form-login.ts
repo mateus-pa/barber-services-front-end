@@ -1,31 +1,45 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { FormControl, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { merge } from 'rxjs';
 
 @Component({
   selector: 'app-form-login',
-  imports: [FormsModule, CommonModule, ReactiveFormsModule],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './form-login.html',
   styleUrl: './form-login.css',
 })
 export class FormLogin implements OnInit {
+  ngOnInit(): void {}
+  loginFormGroup: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    senha: new FormControl('', [Validators.required, Validators.minLength(6)]),
+  });
+
+  email = this.loginFormGroup.get('email') as FormControl;
+  senha = this.loginFormGroup.get('senha') as FormControl;
+
   constructor() {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateErrorMessage());
   }
 
-  ngOnInit(): void {}
-
-  readonly email = new FormControl('', [Validators.required, Validators.email]);
   errorMessage = signal('');
   updateErrorMessage() {
-    if (this.email.hasError('required')) {
+    const emailControl = this.loginFormGroup.get('email');
+    if (emailControl?.hasError('required')) {
       this.errorMessage.set('Você precisa digitar um email');
-    } else if (this.email.hasError('email')) {
+    } else if (emailControl?.hasError('email')) {
       this.errorMessage.set('Não é um email válido');
     } else {
       this.errorMessage.set('');
@@ -38,14 +52,10 @@ export class FormLogin implements OnInit {
     event.stopPropagation();
   }
 
-  onSubmit(form: NgForm): void {
-    if (form.invalid) {
-      return;
+  onSubmit(): void {
+    if (this.loginFormGroup.valid) {
+      const dados = this.loginFormGroup.value;
+      console.log(dados);
     }
-
-    const { email, senha } = form.value;
-
-    console.log('Dados prontos para o back-end:', form.value);
-    // Chamar a API aqui...
   }
 }
