@@ -9,7 +9,7 @@
   border: 2px solid var(--marrom-intermediario);
   box-shadow: 0 4px 6px var(--marrom-escuro);
   border-radius: 10px;
-  margin-top: 5rem;
+  margin: 5rem 0;
   width: 420px;
   gap: 1.875rem;
 }
@@ -33,7 +33,7 @@ h2 {
 }
 
 .btn-cadastrar {
-  margin-top: 1.875rem;
+  margin-bottom: 1.875rem;
   width: 100%;
   padding: 0.75rem;
   border: none;
@@ -53,11 +53,6 @@ h2 {
 
 .btn-cadastrar:active {
   background-color: var(--marrom-intermediario);
-}
-
-.lgpd {
-  text-align: center;
-  margin-bottom: 1.875rem;
 }
 
 .form-field {
@@ -103,4 +98,18 @@ h2 {
 
 .password-field .text-input {
   padding-right: 40px;
+}
+
+.lgpd {
+  text-align: left;
+  margin: 1.875rem 0;
+}
+
+.lgpd label {
+  color: #b8b8b8;
+  font-size: 0.95rem;
+}
+
+.lgpd a:hover {
+  color: #2b39ff;
 }

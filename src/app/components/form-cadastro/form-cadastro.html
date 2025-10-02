@@ -33,11 +33,34 @@
 
     <div class="form-field">
       <label for="input-password">Senha</label>
-      <input id="input-password" class="text-input" type="password" formControlName="password" />
+      <input id="input-password" class="text-input" type="password" [formControl]="senha" />
+    </div>
+
+    <div class="lgpd">
+      <input
+        type="checkbox"
+        id="aceiteTermos"
+        name="aceiteTermos"
+        [formControl]="aceiteTermos"
+        required
+        onchange="toggleButton()"
+      />
+      <label for="aceiteTermos">
+        Li e aceito integralmente os
+        <a
+          href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+          target="_blank"
+          ><strong>Termos de Serviço</strong></a
+        >
+        e a
+        <a
+          href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm/"
+          target="_blank"
+          ><strong>Política de Privacidade</strong></a
+        >.
+      </label>
     </div>
 
     <button type="submit" [disabled]="loginForm.invalid" class="btn-cadastrar">Cadastrar</button>
   </form>
-
-  <div class="lgpd"></div>
 </section>

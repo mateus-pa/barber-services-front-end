@@ -12,6 +12,10 @@ import { CommonModule } from '@angular/common';
 })
 export class FormCadastro {
   protected readonly value = signal('');
+  readonly email = new FormControl('', [Validators.required, Validators.email]);
+  readonly senha = new FormControl('', [Validators.required, Validators.minLength(6)]);
+  readonly nome = new FormControl('', [Validators.required, Validators.minLength(3)]);
+  readonly aceiteTermos = new FormControl(false, [Validators.requiredTrue]);
 
   protected onInput(event: Event) {
     this.value.set((event.target as HTMLInputElement).value);
@@ -25,7 +29,6 @@ export class FormCadastro {
 
   ngOnInit(): void {}
 
-  readonly email = new FormControl('', [Validators.required, Validators.email]);
   errorMessage = signal('');
   updateErrorMessage() {
     if (this.email.hasError('required')) {
