@@ -1,9 +1,8 @@
 .container {
   flex: 1;
   display: flex;
-  flex-direction: column;
   align-items: start;
-  background-color: #fff;
+  background-color: #c5c5c5;
 }
 
 .page-wrapper {
@@ -13,5 +12,10 @@
 }
 
 app-sidebar-dashboard {
+  margin-top: 3.5rem;
+}
+
+app-queue-dashboard {
+  padding: 1rem;
   margin-top: 3.5rem;
 }
