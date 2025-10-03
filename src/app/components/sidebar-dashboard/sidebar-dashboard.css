@@ -1,0 +1,140 @@
+:host {
+  --sidebar-bg-color: #2c3e50;
+  --text-color: #ecf0f1;
+  --active-bg-color: #008787;
+  --active-text-color: #ffffff;
+  --accent-color: #00ffff;
+  --divider-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  min-height: 100vh;
+  background-color: var(--marrom-escuro);
+  color: var(--text-color);
+  padding: 16px 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 0 20px 20px 20px;
+  margin-bottom: 10px;
+}
+
+.sidebar-header .material-icons {
+  font-size: 28px;
+  color: var(--accent-color);
+  margin-right: 10px;
+}
+
+.sidebar-header .title {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0;
+}
+
+.sidebar-nav {
+  flex-grow: 1;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin: 4px 0;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 12px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.active-link-style {
+  background-color: var(--marrom-claro);
+  color: var(--active-text-color);
+  font-weight: 600;
+  margin: 0 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link .material-icons {
+  margin-right: 15px;
+  font-size: 20px;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--divider-color);
+  margin: 15px 20px;
+}
+
+.sidebar-footer {
+  padding: 0 20px 16px 20px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.user-profile:hover .user-info .name {
+  color: var(--marrom-muito-claro);
+}
+
+.user-profile .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-color);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.user-info .name {
+  font-weight: 600;
+  font-size: 1em;
+  color: white;
+}
+
+.user-info .title {
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.logout-icon {
+  color: var(--text-color);
+  padding: 5px;
+  border-radius: 50%;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.logout-icon:hover {
+  color: var(--marrom-muito-claro);
+  background-color: rgba(255, 255, 255, 0.1);
+}

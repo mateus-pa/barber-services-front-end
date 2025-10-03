@@ -19,7 +19,7 @@ export class Header {
   constructor() {
     // Escuta mudanças de rota
     this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
+      .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: any) => {
         this.currentRoute = event.urlAfterRedirects;
         this.checkScroll();
@@ -33,15 +33,11 @@ export class Header {
   @HostListener('window:scroll', [])
   checkScroll() {
     const scrollPosition =
-      window.pageYOffset ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop ||
-      0;
+      window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
     const stickyThreshold = 20;
 
-
-    const alwaysStickyRoutes = ['/login', '/dashboard', '/perfil'];
+    const alwaysStickyRoutes = ['/login', '/dashboard/home', '/perfil'];
 
     if (alwaysStickyRoutes.includes(this.currentRoute)) {
       this.isSticky = true;

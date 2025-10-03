@@ -24,8 +24,13 @@ export const routes: Routes = [
     component: Cadastrar,
   },
   {
-    path: 'dashboard',
+    path: 'dashboard/home',
     component: Dashboard,
     canActivate: [authGuard],
+  },
+  {
+    path: 'dashboard',
+    redirectTo: 'dashboard/home',
+    pathMatch: 'full',
   },
 ];
