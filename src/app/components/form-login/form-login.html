@@ -23,7 +23,9 @@
       <input id="input-password" class="text-input" type="password" [formControl]="senha" />
     </div>
 
-    <label class="text-cadastro">Não tem conta? <a routerLink="/cadastro">Cadastrar</a></label>
+    <label class="text-cadastro"
+      >Ainda não tem conta? <a routerLink="/cadastro">Cadastrar</a></label
+    >
 
     <button type="submit" [disabled]="loginFormGroup.invalid" class="btn-login">Entrar</button>
   </form>

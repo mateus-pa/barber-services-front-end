@@ -10,7 +10,7 @@
   box-shadow: 0 4px 6px var(--marrom-escuro);
   border-radius: 10px;
   margin-top: 5rem;
-  width: 420px;
+  width: 450px;
   gap: 1.875rem;
 }
 
@@ -30,6 +30,8 @@ h2 {
   text-align: center;
   color: #fff;
   margin-top: 1.875rem;
+  font-family: var(--fonte-secundaria);
+  font-weight: 700;
 }
 
 .btn-login {
@@ -109,17 +111,18 @@ h2 {
   margin-top: 0.25rem;
   margin-bottom: 1.25rem;
   color: #b8b8b8;
+  font-weight: 500;
 }
 
 .text-cadastro a {
-  font-weight: bold;
-  color: #2b39ff;
+  font-weight: 600;
+  color: var(--marrom-muito-claro);
   cursor: pointer;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .text-cadastro a:hover {
-  color: #000dca;
+  color: var(--marrom-claro);
   text-decoration: underline;
 }

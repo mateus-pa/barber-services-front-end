@@ -30,6 +30,8 @@ h2 {
   text-align: center;
   color: #fff;
   margin-top: 1.875rem;
+  font-family: Var(--fonte-secundaria);
+  font-weight: 700;
 }
 
 .btn-cadastrar {
@@ -116,12 +118,16 @@ h2 {
 }
 
 .lgpd a {
-  color: #2b39ff;
+  color: var(--marrom-muito-claro);
   font-weight: bold;
   transition: all 0.3s ease;
 }
 
 .lgpd a:hover {
-  color: #000dca;
+  color: var(--marrom-claro);
   text-decoration: underline;
+}
+
+.lgpd a:active {
+  color: var(--marrom-intermediario);
 }
