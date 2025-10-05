@@ -1,25 +1,27 @@
-import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
 
 const USER_KEY = 'auth-user';
+
+export interface LoginPayload {
+  email: string;
+  password: string;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3001';
+  private router = inject(Router);
+  private readonly apiUrl = 'http://localhost:3000';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient) {}
 
-  login(usuario: Pick<User, 'email' | 'password'>): Observable<User> {
-    return this.http.post<User>(`${this.apiUrl}/login`, usuario).pipe(
-      tap((response) => {
-        sessionStorage.setItem(USER_KEY, JSON.stringify(response));
-      })
-    );
+  login(payload: LoginPayload): Observable<User> {
+    return this.http.post<User>(this.apiUrl + '/login', payload);
   }
 
   logout(): void {
