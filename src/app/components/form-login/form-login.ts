@@ -32,18 +32,34 @@ export class FormLogin implements OnInit {
   constructor(private authService: AuthService) {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
-      .subscribe(() => this.updateErrorMessage());
+      .subscribe(() => this.updateErrorMessageEmail());
+
+    merge(this.password.statusChanges, this.password.valueChanges)
+      .pipe(takeUntilDestroyed())
+      .subscribe(() => this.updateErrorMessagePassword());
   }
 
-  errorMessage = signal('');
-  updateErrorMessage() {
+  errorMessageEmail = signal('');
+  updateErrorMessageEmail() {
     const emailControl = this.loginFormGroup.get('email');
     if (emailControl?.hasError('required')) {
-      this.errorMessage.set('Você precisa digitar um email');
+      this.errorMessageEmail.set('Você precisa digitar um email');
     } else if (emailControl?.hasError('email')) {
-      this.errorMessage.set('Não é um email válido');
+      this.errorMessageEmail.set('Não é um email válido');
     } else {
-      this.errorMessage.set('');
+      this.errorMessageEmail.set('');
+    }
+  }
+
+  errorMessagePassword = signal('');
+  updateErrorMessagePassword() {
+    const passwordControl = this.loginFormGroup.get('password');
+    if (passwordControl?.hasError('required')) {
+      this.errorMessagePassword.set(' Vocé precisa digitar uma senha');
+    } else if (passwordControl?.hasError('minlength')) {
+      this.errorMessagePassword.set('A senha precisa ter pelo menos 6 caracteres');
+    } else {
+      this.errorMessagePassword.set('');
     }
   }
 
@@ -53,6 +69,7 @@ export class FormLogin implements OnInit {
     event.stopPropagation();
   }
 
+  errorMessageLogin = signal('');
   onSubmit(): void {
     if (this.loginFormGroup.valid) {
       const dados: LoginPayload = this.loginFormGroup.value;
@@ -60,13 +77,16 @@ export class FormLogin implements OnInit {
       this.authService.login(dados).subscribe({
         next: (user) => {
           console.log('Login bem-sucedido:', user);
+
           // redirecionar ou salvar token, etc.
         },
         error: (err) => {
           console.error('Erro ao fazer login:', err);
-          this.errorMessage.set('Email ou senha inválidos');
+          this.errorMessageLogin.set('Email ou senha inválidos');
         },
       });
+    } else {
+      this.errorMessageLogin.set('Email ou senha inválidos');
     }
   }
 }
