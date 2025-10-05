@@ -1,3 +1,7 @@
+@if (showLoginError()) {
+<app-erro-modal-login [message]="errorMessageLogin()" (closed)="showLoginError.set(false)" />
+}
+
 <section class="cadastro-container">
   <h2>Acesse sua conta</h2>
 

@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
 
-const USER_KEY = 'auth-user';
-
 export interface LoginPayload {
   email: string;
   password: string;
@@ -25,12 +23,15 @@ export class AuthService {
   }
 
   logout(): void {
-    sessionStorage.removeItem(USER_KEY);
+    sessionStorage.removeItem('authToken');
     this.router.navigate(['/login']);
   }
 
-  isLoggedIn(): boolean {
-    const user = sessionStorage.getItem(USER_KEY);
-    return user ? true : false;
+  getToken(): string | null {
+    return sessionStorage.getItem('authToken');
+  }
+
+  isAuthenticated(): boolean {
+    return !!this.getToken();
   }
 }

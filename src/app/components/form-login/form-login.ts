@@ -8,13 +8,14 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { merge } from 'rxjs';
 import { AuthService, LoginPayload } from '../../services/auth';
+import { ErroModalLogin } from '../erro-modal-login/erro-modal-login';
 
 @Component({
   selector: 'app-form-login',
-  imports: [FormsModule, CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule, RouterLink, ErroModalLogin],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './form-login.html',
   styleUrl: './form-login.css',
@@ -29,7 +30,7 @@ export class FormLogin implements OnInit {
   email = this.loginFormGroup.get('email') as FormControl;
   password = this.loginFormGroup.get('password') as FormControl;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateErrorMessageEmail());
@@ -70,6 +71,7 @@ export class FormLogin implements OnInit {
   }
 
   errorMessageLogin = signal('');
+  showLoginError = signal(false);
   onSubmit(): void {
     if (this.loginFormGroup.valid) {
       const dados: LoginPayload = this.loginFormGroup.value;
@@ -77,16 +79,20 @@ export class FormLogin implements OnInit {
       this.authService.login(dados).subscribe({
         next: (user) => {
           console.log('Login bem-sucedido:', user);
-
-          // redirecionar ou salvar token, etc.
+          this.showLoginError.set(false);
+          const token = user.token;
+          sessionStorage.setItem('authToken', token);
+          this.router.navigate(['/dashboard']);
         },
         error: (err) => {
           console.error('Erro ao fazer login:', err);
           this.errorMessageLogin.set('Email ou senha inválidos');
+          this.showLoginError.set(true);
         },
       });
     } else {
       this.errorMessageLogin.set('Email ou senha inválidos');
+      this.showLoginError.set(true);
     }
   }
 }
