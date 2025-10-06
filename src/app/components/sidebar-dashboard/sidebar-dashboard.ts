@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { AuthService } from '../../services/auth';
 
 interface NavItem {
   icon: string;
@@ -17,6 +18,12 @@ interface NavItem {
   styleUrls: ['./sidebar-dashboard.css'],
 })
 export class SidebarDashboard {
+  constructor(private authService: AuthService) {}
+
+  logoutBtn() {
+    this.authService.logout();
+  }
+
   menuItems: NavItem[] = [
     { icon: 'home', label: 'Dashboard', route: '/dashboard' }, // Item ativo
     { icon: 'folder', label: 'Projects', route: '/projects' },
@@ -30,8 +37,6 @@ export class SidebarDashboard {
     { icon: 'settings', label: 'Settings', route: '/settings' },
     { icon: 'help_outline', label: 'Help', route: '/help' },
   ];
-
-  // Dados do usuário para o rodapé
   user = {
     name: 'Jane Doe',
     title: 'Product Designer',

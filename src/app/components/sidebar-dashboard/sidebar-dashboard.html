@@ -34,9 +34,9 @@
         <span class="name">{{ user.name }}</span>
         <span class="title">{{ user.title }}</span>
       </div>
-      <a href="/logout" class="logout-icon" title="Sign Out">
+      <button (click)="logoutBtn()" class="logout-icon" title="Sign Out">
         <span class="material-icons">logout</span>
-      </a>
+      </button>
     </div>
   </div>
 </div>
