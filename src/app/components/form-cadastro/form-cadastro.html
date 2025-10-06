@@ -15,6 +15,10 @@
         required
         (input)="onInput($event)"
       />
+
+      @if (nome.invalid) {
+      <div class="error-message">{{ errorMessageNome() }}</div>
+      }
     </div>
 
     <div class="form-field">
@@ -25,18 +29,26 @@
         class="text-input"
         placeholder="email@example.com"
         [formControl]="email"
-        required
-        (blur)="updateErrorMessage()"
+        (blur)="updateErrorMessageEmail()"
         required
       />
       @if (email.invalid) {
-      <div class="error-message">{{ errorMessage() }}</div>
+      <div class="error-message">{{ errorMessageEmail() }}</div>
       }
     </div>
 
     <div class="form-field">
       <label for="input-password">Senha</label>
-      <input id="input-password" class="text-input" type="password" [formControl]="senha" />
+      <input
+        id="input-password"
+        class="text-input"
+        (blur)="updateErrorMessagePassword()"
+        type="password"
+        [formControl]="password"
+      />
+      @if (password.invalid) {
+      <div class="error-message">{{ errorMessagePassword() }}</div>
+      }
     </div>
 
     <div class="lgpd">
@@ -62,6 +74,9 @@
           >Política de Privacidade</a
         >.
       </label>
+      @if (aceiteTermos.invalid) {
+      <div class="error-message">{{ errorMessageAceiteTermos() }}</div>
+      }
     </div>
 
     <button type="submit" [disabled]="cadastroFormGroup.invalid" class="btn-cadastrar">
