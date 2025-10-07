@@ -6,9 +6,15 @@
   <nav id="navbar">
     <ul>
       <li><a routerLink="/home" (click)="scrollToElement('home')">HOME</a></li>
+      @if(this.currentRoute == "/home"){
       <li><a (click)="scrollToElement('sobre')">SOBRE</a></li>
       <li><a (click)="scrollToElement('funcoes')">FUNÇÕES</a></li>
       <li><a (click)="scrollToElement('acessar')">ACESSAR</a></li>
+      } @if(this.currentRoute != "/home") {
+      <li><a routerLink="/home">SOBRE</a></li>
+      <li><a routerLink="/home">FUNÇÕES</a></li>
+      <li><a routerLink="/login">ACESSAR</a></li>
+      }
     </ul>
   </nav>
 </header>
