@@ -4,14 +4,12 @@
     <h1>AgendArte Barber</h1>
   </div>
 
-  <!-- Botão hamburguer -->
   <button class="hamburger" (click)="toggleMenu()" [class.active]="menuOpen">
     <span></span>
     <span></span>
     <span></span>
   </button>
 
-  <!-- Menu de navegação -->
   <nav id="navbar" [ngClass]="{ open: menuOpen }">
     <ul>
       <li><a routerLink="/home" (click)="scrollToElement('home'); closeMenu()">HOME</a></li>

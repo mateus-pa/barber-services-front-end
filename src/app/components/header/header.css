@@ -35,7 +35,6 @@ header.sticky {
   font-weight: 700;
 }
 
-/* NAV padrão */
 header nav ul {
   display: flex;
   gap: 1.1rem;
@@ -56,7 +55,6 @@ header nav ul li a:hover {
   color: var(--cor-terciaria);
 }
 
-/* HAMBURGUER */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -89,7 +87,6 @@ header nav ul li a:hover {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* RESPONSIVO */
 @media (max-width: 1024px) {
   header {
     padding: 0.5rem 2rem;
