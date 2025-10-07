@@ -1,7 +1,20 @@
 <section class="acessar">
   <h2>Já possui um cadastro em nosso sistema?</h2>
-  <ul>
-    <li><a routerLink="/login">Clique aqui para acessar sua conta</a></li>
-    <li><a routerLink="/cadastro">Cique aqui caso não possua cadastro</a></li>
-  </ul>
+  <div class="acessar__cards">
+    <a routerLink="/login" class="acessar__card">
+      <div class="icon">
+        <i class="fa-solid fa-right-to-bracket"></i>
+      </div>
+      <h3>Acessar Conta</h3>
+      <p>Entre em sua conta para agendar ou gerenciar seus serviços.</p>
+    </a>
+
+    <a routerLink="/cadastro" class="acessar__card">
+      <div class="icon">
+        <i class="fa-solid fa-user-plus"></i>
+      </div>
+      <h3>Criar Cadastro</h3>
+      <p>Cadastre-se gratuitamente e comece a aproveitar todos os recursos.</p>
+    </a>
+  </div>
 </section>
