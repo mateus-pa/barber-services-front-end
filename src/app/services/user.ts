@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 export interface CreateAccountPayload {
@@ -13,7 +12,6 @@ export interface CreateAccountPayload {
   providedIn: 'root',
 })
 export class UserService {
-  private router = inject(Router);
   private readonly apiUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {}

@@ -87,7 +87,9 @@
     </div>
 
     <button type="submit" [disabled]="cadastroFormGroup.invalid" class="btn-cadastrar">
-      Cadastrar
+      @if (isLoading()) {
+      <div class="spinner"></div>
+      } @else { Cadastrar }
     </button>
   </form>
 </section>

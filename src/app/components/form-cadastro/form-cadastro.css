@@ -35,6 +35,9 @@ h2 {
 }
 
 .btn-cadastrar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 3rem;
   width: 100%;
   padding: 0.75rem;
@@ -130,4 +133,22 @@ h2 {
 
 .lgpd a:active {
   color: var(--marrom-intermediario);
+}
+
+.spinner {
+  border: 4px solid var(--marrom-muito-claro); /* Cor de fundo do círculo */
+  border-top: 4px solid var(--marrom-escuro); /* Cor do traço de carregamento */
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite; /* Animação de rotação */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

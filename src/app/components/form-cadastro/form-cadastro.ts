@@ -113,8 +113,10 @@ export class FormCadastro {
 
   showCreateAccountError = signal(false);
   errorMessageCreateAccount = signal('');
+  isLoading = signal(false);
   onSubmit(): void {
     if (this.cadastroFormGroup.valid) {
+      this.isLoading.set(true);
       const dados: CreateAccountPayload = {
         name: this.cadastroFormGroup.get('nome')?.value,
         email: this.cadastroFormGroup.get('email')?.value,
@@ -124,12 +126,16 @@ export class FormCadastro {
         next: (user) => {
           console.log('Conta criada com sucesso:', user);
           this.showCreateAccountError.set(false);
+          this.isLoading.set(false);
           this.router.navigate(['/login']);
         },
         error: (err) => {
           console.error('Erro ao criar a conta:', err);
-          this.errorMessageCreateAccount.set(err.error.error);
+          this.errorMessageCreateAccount.set(
+            err.error.error ? err.error.error : 'Falha na comunicação com o servidor'
+          );
           this.showCreateAccountError.set(true);
+          this.isLoading.set(false);
         },
       });
     } else {

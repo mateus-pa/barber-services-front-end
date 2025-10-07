@@ -72,8 +72,10 @@ export class FormLogin implements OnInit {
 
   errorMessageLogin = signal('');
   showLoginError = signal(false);
+  isLoading = signal(false);
   onSubmit(): void {
     if (this.loginFormGroup.valid) {
+      this.isLoading.set(true);
       const dados: LoginPayload = this.loginFormGroup.value;
       console.log(dados);
       this.authService.login(dados).subscribe({
@@ -82,12 +84,14 @@ export class FormLogin implements OnInit {
           this.showLoginError.set(false);
           const token = user.token;
           sessionStorage.setItem('authToken', token);
+          this.isLoading.set(false);
           this.router.navigate(['/dashboard']);
         },
         error: (err) => {
           console.error('Erro ao fazer login:', err);
           this.errorMessageLogin.set('Email ou senha inválidos');
           this.showLoginError.set(true);
+          this.isLoading.set(false);
         },
       });
     } else {

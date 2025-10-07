@@ -40,6 +40,10 @@
       >Ainda não tem conta? <a routerLink="/cadastro">Cadastrar</a></label
     >
 
-    <button type="submit" [disabled]="loginFormGroup.invalid" class="btn-login">Entrar</button>
+    <button type="submit" [disabled]="loginFormGroup.invalid" class="btn-login">
+      @if (isLoading()) {
+      <div class="spinner"></div>
+      } @else { Entrar }
+    </button>
   </form>
 </section>
