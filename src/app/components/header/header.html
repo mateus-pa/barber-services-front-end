@@ -3,17 +3,27 @@
     <img src="./agendarte-logo.png" alt="Logo" />
     <h1>AgendArte Barber</h1>
   </div>
-  <nav id="navbar">
+
+  <!-- Botão hamburguer -->
+  <button class="hamburger" (click)="toggleMenu()" [class.active]="menuOpen">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Menu de navegação -->
+  <nav id="navbar" [ngClass]="{ open: menuOpen }">
     <ul>
-      <li><a routerLink="/home" (click)="scrollToElement('home')">HOME</a></li>
-      @if(this.currentRoute == "/home"){
-      <li><a (click)="scrollToElement('sobre')">SOBRE</a></li>
-      <li><a (click)="scrollToElement('funcoes')">FUNÇÕES</a></li>
-      <li><a (click)="scrollToElement('acessar')">ACESSAR</a></li>
-      } @if(this.currentRoute != "/home") {
-      <li><a routerLink="/home">SOBRE</a></li>
-      <li><a routerLink="/home">FUNÇÕES</a></li>
-      <li><a routerLink="/login">ACESSAR</a></li>
+      <li><a routerLink="/home" (click)="scrollToElement('home'); closeMenu()">HOME</a></li>
+
+      @if (this.currentRoute == "/home") {
+      <li><a (click)="scrollToElement('sobre'); closeMenu()">SOBRE</a></li>
+      <li><a (click)="scrollToElement('funcoes'); closeMenu()">FUNÇÕES</a></li>
+      <li><a (click)="scrollToElement('acessar'); closeMenu()">ACESSAR</a></li>
+      } @else {
+      <li><a routerLink="/home" (click)="closeMenu()">SOBRE</a></li>
+      <li><a routerLink="/home" (click)="closeMenu()">FUNÇÕES</a></li>
+      <li><a routerLink="/login" (click)="closeMenu()">ACESSAR</a></li>
       }
     </ul>
   </nav>

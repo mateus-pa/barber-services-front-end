@@ -15,9 +15,9 @@ export class Header {
 
   isSticky: boolean = false;
   currentRoute: string = '';
+  menuOpen: boolean = false;
 
   constructor() {
-    // Escuta mudanças de rota
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: any) => {
@@ -30,13 +30,20 @@ export class Header {
     this.scroller.scrollToAnchor(fragment);
   }
 
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu(): void {
+    this.menuOpen = false;
+  }
+
   @HostListener('window:scroll', [])
   checkScroll() {
     const scrollPosition =
       window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
     const stickyThreshold = 20;
-
     const alwaysStickyRoutes = ['/login', '/dashboard/home', '/perfil'];
 
     if (alwaysStickyRoutes.includes(this.currentRoute)) {
@@ -44,7 +51,6 @@ export class Header {
       return;
     }
 
-    // Caso contrário, usa a regra do scroll
     this.isSticky = scrollPosition >= stickyThreshold;
   }
 }
