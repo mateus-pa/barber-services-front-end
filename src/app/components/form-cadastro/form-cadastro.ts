@@ -111,12 +111,6 @@ export class FormCadastro {
     event.stopPropagation();
   }
 
-  // onSubmit(): void {
-  //   if (this.cadastroFormGroup.valid) {
-  //     const dados = this.cadastroFormGroup.value;
-  //     console.log(dados);
-  //   }
-  // }
   showCreateAccountError = signal(false);
   errorMessageCreateAccount = signal('');
   onSubmit(): void {
@@ -126,7 +120,6 @@ export class FormCadastro {
         email: this.cadastroFormGroup.get('email')?.value,
         password: this.cadastroFormGroup.get('password')?.value,
       };
-      console.log(dados);
       this.userService.createAccount(dados).subscribe({
         next: (user) => {
           console.log('Conta criada com sucesso:', user);
@@ -134,15 +127,13 @@ export class FormCadastro {
           this.router.navigate(['/login']);
         },
         error: (err) => {
-          console.error('Erro ao fazer login:', err);
-          this.errorMessageCreateAccount.set(
-            'Falha ao criar a conta: Preencha os campos corretamente'
-          );
+          console.error('Erro ao criar a conta:', err);
+          this.errorMessageCreateAccount.set(err.error.error);
           this.showCreateAccountError.set(true);
         },
       });
     } else {
-      this.errorMessageCreateAccount.set('Falha ao criar a conta: Preencha os campos corretamente');
+      this.errorMessageCreateAccount.set('Preencha os campos corretamente');
       this.showCreateAccountError.set(true);
     }
   }
