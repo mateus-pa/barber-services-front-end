@@ -1,3 +1,10 @@
+@if (showCreateAccountError()) {
+<app-erro-modal-create-account
+  [message]="errorMessageCreateAccount()"
+  (closed)="showCreateAccountError.set(false)"
+/>
+}
+
 <section class="cadastro-container">
   <h2>Cadastre sua conta</h2>
 

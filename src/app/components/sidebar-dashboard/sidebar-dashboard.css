@@ -129,12 +129,14 @@
 
 .logout-icon {
   color: var(--text-color);
+  background-color: var(--marrom-intermediario);
   padding: 5px;
   border-radius: 50%;
   transition: color 0.3s, background-color 0.3s;
 }
 
 .logout-icon:hover {
+  background-color: var(--marrom-escuro);
   color: var(--marrom-muito-claro);
   background-color: rgba(255, 255, 255, 0.1);
 }

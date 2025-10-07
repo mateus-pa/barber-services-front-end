@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
@@ -7,12 +8,14 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { merge } from 'rxjs';
-import { CommonModule } from '@angular/common';
+import { CreateAccountPayload, UserService } from '../../services/user';
+import { ErroModalCreateAccount } from '../erro-modal-create-account/erro-modal-create-account';
 
 @Component({
   selector: 'app-form-cadastro',
-  imports: [FormsModule, CommonModule, ReactiveFormsModule],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule, ErroModalCreateAccount],
   templateUrl: './form-cadastro.html',
   styleUrl: './form-cadastro.css',
 })
@@ -38,7 +41,7 @@ export class FormCadastro {
     this.value.set((event.target as HTMLInputElement).value);
   }
 
-  constructor() {
+  constructor(private userService: UserService, private router: Router) {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateErrorMessageEmail());
@@ -108,10 +111,39 @@ export class FormCadastro {
     event.stopPropagation();
   }
 
+  // onSubmit(): void {
+  //   if (this.cadastroFormGroup.valid) {
+  //     const dados = this.cadastroFormGroup.value;
+  //     console.log(dados);
+  //   }
+  // }
+  showCreateAccountError = signal(false);
+  errorMessageCreateAccount = signal('');
   onSubmit(): void {
     if (this.cadastroFormGroup.valid) {
-      const dados = this.cadastroFormGroup.value;
+      const dados: CreateAccountPayload = {
+        name: this.cadastroFormGroup.get('nome')?.value,
+        email: this.cadastroFormGroup.get('email')?.value,
+        password: this.cadastroFormGroup.get('password')?.value,
+      };
       console.log(dados);
+      this.userService.createAccount(dados).subscribe({
+        next: (user) => {
+          console.log('Conta criada com sucesso:', user);
+          this.showCreateAccountError.set(false);
+          this.router.navigate(['/login']);
+        },
+        error: (err) => {
+          console.error('Erro ao fazer login:', err);
+          this.errorMessageCreateAccount.set(
+            'Falha ao criar a conta: Preencha os campos corretamente'
+          );
+          this.showCreateAccountError.set(true);
+        },
+      });
+    } else {
+      this.errorMessageCreateAccount.set('Falha ao criar a conta: Preencha os campos corretamente');
+      this.showCreateAccountError.set(true);
     }
   }
 }
