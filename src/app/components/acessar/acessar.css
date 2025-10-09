@@ -6,6 +6,12 @@
   padding: 8rem 2rem;
   text-align: center;
   background: linear-gradient(135deg, #faf8f6, #f2eeea);
+  border-radius: 20px;
+  padding: 4rem 3rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  margin: 8rem auto 0;
+  margin-bottom: 8rem; /* Separado para lembrar de apagar se adicionar mais um componente */
 }
 
 .acessar h2 {

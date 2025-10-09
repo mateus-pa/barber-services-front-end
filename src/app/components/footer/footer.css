@@ -1,52 +1,162 @@
 footer {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  background-color: var(--marrom-escuro);
   color: var(--cinza-claro);
+  width: 100%;
+  font-family: Arial, sans-serif;
 }
 
 .infos {
-  background-color: var(--marrom-escuro);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  padding: 0.5rem;
+  padding: 3rem 5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .infos__contatos {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
-  margin-left: 5rem;
-  gap: 0.2rem;
+  gap: 1rem;
+  width: 35%;
+  padding: 0;
+  margin-left: 0;
 }
 
+.infos__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  text-align: center;
+}
+
+.footer-logo {
+  max-width: 120px;
+  height: auto;
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+
+.footer-logo:hover {
+  opacity: 1;
+}
+
+/* Itens de Contato e Localização */
 .infos__contatos__item {
   display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.925rem;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 .infos__contatos__item a {
   text-decoration: none;
   color: var(--cinza-claro);
-  transition: all 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
 }
 
 .infos__contatos__item a:hover {
-  text-decoration: underline;
-  cursor: pointer;
   color: var(--ouro-destaque);
 }
 
+/* Ícones Genéricos (Location, Mail) - Mantido para os que funcionam */
 .material-symbols-outlined {
+  opacity: 0.8;
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 16;
   color: var(--ouro-destaque);
+  flex-shrink: 0;
+  font-size: 1.2rem;
+}
+
+/* Redes Sociais */
+.infos__redes {
+  display: flex;
+  gap: 1.5rem;
+  width: 35%;
+  justify-content: flex-end;
+}
+
+.infos__redes a {
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+/* Estilo para Ícones do Font Awesome e de Redes Sociais */
+.social-icon {
+  font-size: 1.8rem; /* Ícones de redes sociais maiores */
+  color: var(--cinza-claro);
+  transition: color 0.3s ease;
+}
+
+.infos__redes a:hover .social-icon {
+  color: var(--ouro-destaque);
+  transform: translateY(-3px); /* Efeito sutil de levantar */
+}
+
+/* Seção de Copyright */
+.copyright {
+  background-color: var(--marrom-escuro);
+  padding: 1rem 5rem;
+  text-align: center;
 }
 
 .copyright p {
   text-align: center;
   font-size: 0.8rem;
-  color: var(--marrom-escuro);
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
+/* === RESPONSIVIDADE === */
+
+/* Para telas menores que 992px (Tablet) */
+@media (max-width: 992px) {
+  .infos {
+    padding: 2rem 3rem;
+  }
+
+  .infos__logo {
+    display: none;
+  }
+
+  .infos__contatos,
+  .infos__redes {
+    width: 50%;
+  }
+
+  .infos__redes {
+    justify-content: center;
+  }
+}
+
+/* Para telas menores que 768px (Celular) */
+@media (max-width: 768px) {
+  .infos {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .infos__contatos,
+  .infos__redes {
+    width: 100%;
+    margin: 0;
+    align-items: center;
+  }
+
+  .infos__contatos {
+    align-items: flex-start;
+  }
+
+  .infos__redes {
+    justify-content: center;
+  }
+
+  .copyright {
+    padding: 1rem 1.5rem;
+  }
 }

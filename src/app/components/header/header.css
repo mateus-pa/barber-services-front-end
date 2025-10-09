@@ -92,6 +92,10 @@ header nav ul li a:hover {
     padding: 0.5rem 2rem;
   }
 
+  header.sticky {
+    padding: 0.5rem 2rem;
+  }
+
   header nav ul {
     margin-right: 0;
   }
