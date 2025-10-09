@@ -1,4 +1,3 @@
-/* Seu CSS existente */
 .cadastro-container {
   display: flex;
   flex-direction: column;
@@ -11,7 +10,7 @@
   box-shadow: 0 4px 6px var(--marrom-escuro);
   border-radius: 10px;
   margin: 5rem 0;
-  width: 450px; /* Largura padrão para desktop */
+  width: 450px;
   gap: 1.875rem;
 }
 
@@ -117,22 +116,20 @@ h2 {
   font-size: 0.95rem;
 }
 
-/* Garante que o checkbox e o label fiquem alinhados, se necessário */
 .lgpd label {
-  display: inline; /* ou inline-block */
-  margin-left: 5px; /* Espaço entre o checkbox e o texto */
+  display: inline;
+  margin-left: 5px;
 }
 
 .lgpd input[type='checkbox'] {
   transform: scale(1.1);
-  vertical-align: middle; /* Alinha o checkbox verticalmente com o texto */
+  vertical-align: middle;
 }
 
 .lgpd a {
   color: var(--marrom-muito-claro);
   font-weight: bold;
   transition: all 0.3s ease;
-  /* Adicionar quebra de linha para links longos em telas pequenas */
   word-break: break-word;
 }
 
@@ -146,12 +143,12 @@ h2 {
 }
 
 .spinner {
-  border: 4px solid var(--marrom-muito-claro); /* Cor de fundo do círculo */
-  border-top: 4px solid var(--marrom-escuro); /* Cor do traço de carregamento */
+  border: 4px solid var(--marrom-muito-claro);
+  border-top: 4px solid var(--marrom-escuro);
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  animation: spin 1s linear infinite; /* Animação de rotação */
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
@@ -163,66 +160,60 @@ h2 {
   }
 }
 
-/* --- Media Queries para Responsividade --- */
-
-/* Telas menores que 600px (Ex: a maioria dos celulares) */
 @media (max-width: 600px) {
   .cadastro-container {
-    /* Permite que o container ocupe a maior parte da tela, com margem */
     width: 90%;
-    max-width: 450px; /* Mantém um limite superior */
-    margin: 2rem auto; /* Centraliza verticalmente e reduz margem */
-    padding: 0 1rem; /* Reduz o padding interno */
-    gap: 1.25rem; /* Reduz o espaçamento entre elementos */
+    max-width: 450px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    gap: 1.25rem;
   }
 
   form {
-    padding: 0 1rem; /* Reduz o padding do formulário */
+    padding: 0 1rem;
     max-width: 100%;
   }
 
   h2 {
-    font-size: 1.5rem; /* Reduz o tamanho do título */
+    font-size: 1.5rem;
     margin-top: 1.5rem;
   }
 
   .form-field label {
-    font-size: 0.85rem; /* Reduz o tamanho da fonte dos labels */
+    font-size: 0.85rem;
   }
 
   .text-input {
-    font-size: 0.95rem; /* Reduz o tamanho da fonte dos inputs */
+    font-size: 0.95rem;
   }
 
   .lgpd {
-    /* Adiciona flexbox para melhor controle do alinhamento em telas pequenas */
     display: flex;
-    align-items: flex-start; /* Alinha o input e o texto no topo */
-    gap: 0.5rem; /* Espaçamento entre checkbox e label */
-    margin-bottom: 1.25rem; /* Reduz a margem inferior */
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
     margin-top: 0;
   }
 
   .lgpd input[type='checkbox'] {
-    flex-shrink: 0; /* Impede que o checkbox diminua */
-    transform: scale(1); /* Reduz um pouco o scale */
-    margin-top: 2px; /* Ajusta o alinhamento visual */
+    flex-shrink: 0;
+    transform: scale(1);
+    margin-top: 2px;
   }
 
   .lgpd label {
-    font-size: 0.8rem; /* Reduz o tamanho da fonte do texto de termos */
-    line-height: 1.4; /* Melhora a legibilidade do texto de termos */
-    display: block; /* Ocupa a largura restante */
+    font-size: 0.8rem;
+    line-height: 1.4;
+    display: block;
   }
 
   .btn-cadastrar {
-    font-size: 1rem; /* Reduz o tamanho da fonte do botão */
+    font-size: 1rem;
     padding: 0.6rem;
     margin-bottom: 2rem;
   }
 }
 
-/* Telas muito pequenas (Ex: iPhone SE, dispositivos com menos de 375px) */
 @media (max-width: 375px) {
   .cadastro-container {
     padding: 0 0.5rem;
@@ -233,7 +224,6 @@ h2 {
   }
 
   .lgpd a {
-    /* Garante que links longos não quebrem o layout */
     overflow-wrap: break-word;
   }
 }
