@@ -44,7 +44,7 @@ export class Header {
       window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
     const stickyThreshold = 20;
-    const alwaysStickyRoutes = ['/login', '/dashboard/home', '/perfil'];
+    const alwaysStickyRoutes = ['/dashboard/home', '/perfil'];
 
     if (alwaysStickyRoutes.includes(this.currentRoute)) {
       this.isSticky = true;
