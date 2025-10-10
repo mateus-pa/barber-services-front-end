@@ -24,13 +24,29 @@
 
     <div class="form-field">
       <label for="input-password">Senha</label>
-      <input
-        id="input-password"
-        class="text-input"
-        (blur)="updateErrorMessagePassword()"
-        type="password"
-        [formControl]="password"
-      />
+
+      <div class="input-with-icon">
+        <input
+          id="input-password"
+          class="text-input"
+          (blur)="updateErrorMessagePassword()"
+          [type]="hide() ? 'password' : 'text'"
+          [formControl]="password"
+        />
+
+        <button
+          type="button"
+          class="toggle-password"
+          (click)="clickEvent($event)"
+          [attr.aria-label]="hide() ? 'Mostrar senha' : 'Esconder senha'"
+        >
+          @if (hide()) {
+          <i class="material-icons">visibility_off</i>
+          } @else {
+          <i class="material-icons">visibility</i>
+          }
+        </button>
+      </div>
       @if (password.invalid) {
       <div class="error-message">{{ errorMessagePassword() }}</div>
       }
