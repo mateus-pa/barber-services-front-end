@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface CreateAccountPayload {
   name: string;
@@ -12,11 +13,9 @@ export interface CreateAccountPayload {
   providedIn: 'root',
 })
 export class UserService {
-  private readonly apiUrl = 'http://localhost:3000';
-
   constructor(private http: HttpClient) {}
 
   createAccount(payload: CreateAccountPayload): Observable<CreateAccountPayload> {
-    return this.http.post<CreateAccountPayload>(this.apiUrl + '/users', payload);
+    return this.http.post<CreateAccountPayload>(environment.apiUrl + '/users', payload);
   }
 }
