@@ -11,10 +11,6 @@
   min-height: 100vh;
 }
 
-app-sidebar-dashboard {
-  margin-top: 3.5rem;
-}
-
 app-queue-dashboard {
   padding: 1rem;
   margin-top: 3.5rem;

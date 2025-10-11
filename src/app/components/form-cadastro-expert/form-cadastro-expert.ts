@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, EventEmitter, Input, Output, signal } from '@angular/core'; // <<-- Adicionado Input, Output, EventEmitter
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
   FormControl,
@@ -28,9 +28,12 @@ import { ErroModalCreateAccount } from '../erro-modal-create-account/erro-modal-
   styleUrl: './form-cadastro-expert.css',
 })
 export class FormCadastroExpert {
+  @Input() isVisible: boolean = false;
+  @Output() closed = new EventEmitter<void>();
   protected readonly value = signal('');
 
   ngOnInit(): void {}
+
   createExpertFormGroup: FormGroup = new FormGroup({
     nome: new FormControl('', [Validators.required, Validators.minLength(3)]),
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -42,6 +45,10 @@ export class FormCadastroExpert {
   phone = this.createExpertFormGroup.get('phone') as FormControl;
   nome = this.createExpertFormGroup.get('nome') as FormControl;
   aceiteTermos = this.createExpertFormGroup.get('aceiteTermos') as FormControl;
+
+  closeModal(): void {
+    this.closed.emit();
+  }
 
   toggleButton(): void {}
   protected onInput(event: Event) {
@@ -112,6 +119,8 @@ export class FormCadastroExpert {
           console.log('Funcionário cadastrado com sucesso:', user);
           this.showCreateAccountError.set(false);
           this.isLoading.set(false);
+          // Opcional: Fechar o modal após sucesso
+          this.closeModal();
         },
         error: (err) => {
           console.error('Erro ao cadastrar funcionário:', err);

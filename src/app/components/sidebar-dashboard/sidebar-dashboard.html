@@ -1,15 +1,10 @@
 <div class="sidebar">
-  <!-- <div class="sidebar-header">
-    <span class="material-icons">menu_book</span>
-    <h2 class="title">Dashboard</h2>
-  </div> -->
-
   <nav class="sidebar-nav">
     <ul class="nav-list">
       <li *ngFor="let item of menuItems" class="nav-item" [class.active]="item.active">
         <a [routerLink]="item.route" routerLinkActive="active-link-style" class="nav-link">
           <span class="material-icons notranslate">{{ item.icon }}</span>
-          {{ item.label }}
+          <span class="nav-label">{{ item.label }}</span>
         </a>
       </li>
     </ul>
@@ -18,9 +13,9 @@
 
     <ul class="nav-list">
       <li *ngFor="let item of secondaryItems" class="nav-item">
-        <a [href]="item.route" class="nav-link">
+        <a [routerLink]="item.route" routerLinkActive="active-link-style" class="nav-link">
           <span class="material-icons notranslate">{{ item.icon }}</span>
-          {{ item.label }}
+          <span class="nav-label">{{ item.label }}</span>
         </a>
       </li>
     </ul>

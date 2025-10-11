@@ -1,0 +1,125 @@
+/* Container Principal */
+.dashboard-section {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 12rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.header h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+}
+
+.add-button {
+  background-color: var(--marrom-intermediario);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.add-button:hover {
+  background-color: var(--marrom-claro);
+}
+
+.add-button .icon {
+  font-size: 1.2rem;
+  margin-right: 5px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+thead {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+}
+
+th {
+  padding: 12px 15px;
+  text-align: left;
+  color: #495057;
+  font-weight: 600;
+}
+
+td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #343a40;
+}
+
+.actions-col {
+  text-align: center;
+  width: 1%;
+  white-space: nowrap;
+}
+
+.action-button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background-color 0.3s, opacity 0.3s;
+  min-width: 80px;
+}
+
+.action-button:hover {
+  opacity: 0.8;
+}
+
+.queue-button {
+  background-color: #28a745; /* Verde */
+  color: white;
+}
+
+.update-button {
+  background-color: #ffc107; /* Amarelo/Laranja */
+  color: #333;
+}
+
+.remove-button {
+  background-color: #dc3545; /* Vermelho */
+  color: white;
+}
+
+.loading,
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6c757d;
+  font-style: italic;
+  background-color: #f7f7f7;
+  border-radius: 6px;
+  margin-top: 15px;
+}
+
+/* Efeito de hover nas linhas da tabela */
+tbody tr:hover {
+  background-color: #f8f9fa;
+}

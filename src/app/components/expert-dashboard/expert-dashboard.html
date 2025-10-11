@@ -1,0 +1,63 @@
+<section class="dashboard-section">
+  <div class="header">
+    <h2>Funcionários da Barbearia</h2>
+
+    <button class="add-button" (click)="addEmployee()">
+      <span class="icon">+</span> Adicionar Funcionário
+    </button>
+  </div>
+
+  <div class="content">
+    @if (isLoading()) {
+    <div class="loading">Carregando lista de funcionários...</div>
+    } @else if (employees().length > 0) {
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th class="actions-col">Filas</th>
+            <th class="actions-col">Atualizar</th>
+            <th class="actions-col">Remover</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (employee of employees(); track employee.id) {
+          <tr>
+            <td>{{ employee.id }}</td>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.phone }}</td>
+            <td>{{ employee.email }}</td>
+
+            <td class="actions-col">
+              <button class="action-button queue-button" (click)="viewQueue(employee.id)">
+                Ver Fila
+              </button>
+            </td>
+
+            <td class="actions-col">
+              <button class="action-button update-button" (click)="updateEmployee(employee.id)">
+                Atualizar
+              </button>
+            </td>
+
+            <td class="actions-col">
+              <button class="action-button remove-button" (click)="removeEmployee(employee.id)">
+                Remover
+              </button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    } @else {
+    <div class="empty-state">
+      <p>Nenhum funcionário cadastrado. Clique em "Adicionar Funcionário" para começar.</p>
+    </div>
+    }
+  </div>
+</section>

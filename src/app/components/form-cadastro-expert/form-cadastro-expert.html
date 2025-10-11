@@ -1,89 +1,99 @@
-@if (showCreateAccountError()) {
+@if (isVisible) {
+<div class="modal-overlay" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-button" (click)="closeModal()">&times;</button>
+
+    <section class="cadastro-container">
+      <h2>Cadastre seu funcionário</h2>
+
+      <form [formGroup]="createExpertFormGroup" (ngSubmit)="onSubmit()">
+        <div class="form-field">
+          <label for="input-name">Nome</label>
+          <input
+            id="input-name"
+            type="text"
+            class="text-input"
+            #input
+            maxlength="50"
+            placeholder="Ex. Maria Souza"
+            [formControl]="nome"
+            required
+            (input)="onInput($event)"
+          />
+          @if (nome.invalid) {
+          <div class="error-message">{{ errorMessageNome() }}</div>
+          }
+        </div>
+
+        <div class="form-field">
+          <label for="input-email">Email</label>
+          <input
+            id="input-email"
+            type="email"
+            class="text-input"
+            placeholder="email@example.com"
+            [formControl]="email"
+            (blur)="updateErrorMessageEmail()"
+            required
+          />
+          @if (email.invalid) {
+          <div class="error-message">{{ errorMessageEmail() }}</div>
+          }
+        </div>
+        <div class="form-field">
+          <label for="input-phone">Telefone</label>
+          <input
+            type="text"
+            id="input-phone"
+            [formControl]="phone"
+            [mask]="'(00) 00000-0000'"
+            placeholder="(00) 00000-0000"
+          />
+        </div>
+        <div class="lgpd">
+          <input
+            type="checkbox"
+            id="aceiteTermos"
+            name="aceiteTermos"
+            [formControl]="aceiteTermos"
+            required
+            (change)="toggleButton()"
+          />
+          <label for="aceiteTermos">
+            Li e aceito integralmente os
+            <a
+              href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
+              target="_blank"
+              >Termos de Serviço</a
+            >
+            e a
+            <a
+              href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm/"
+              target="_blank"
+              >Política de Privacidade</a
+            >.
+          </label>
+          @if (aceiteTermos.invalid) {
+          <div class="error-message">{{ errorMessageAceiteTermos() }}</div>
+          }
+        </div>
+
+        <button
+          type="submit"
+          [disabled]="createExpertFormGroup.invalid || isLoading()"
+          class="btn-cadastrar"
+        >
+          @if (isLoading()) {
+          <div class="spinner"></div>
+          } @else { Cadastrar }
+        </button>
+      </form>
+    </section>
+  </div>
+</div>
+} @if (showCreateAccountError()) {
 <app-erro-modal-create-account
   [message]="errorMessageCreateAccount()"
   (closed)="showCreateAccountError.set(false)"
 />
 }
-
-<section class="cadastro-container">
-  <h2>Cadastre seu funcionário</h2>
-
-  <form [formGroup]="createExpertFormGroup" (ngSubmit)="onSubmit()">
-    <div class="form-field">
-      <label for="input-name">Nome</label>
-      <input
-        id="input-name"
-        type="text"
-        class="text-input"
-        #input
-        maxlength="50"
-        placeholder="Ex. Maria Souza"
-        [formControl]="nome"
-        required
-        (input)="onInput($event)"
-      />
-      @if (nome.invalid) {
-      <div class="error-message">{{ errorMessageNome() }}</div>
-      }
-    </div>
-
-    <div class="form-field">
-      <label for="input-email">Email</label>
-      <input
-        id="input-email"
-        type="email"
-        class="text-input"
-        placeholder="email@example.com"
-        [formControl]="email"
-        (blur)="updateErrorMessageEmail()"
-        required
-      />
-      @if (email.invalid) {
-      <div class="error-message">{{ errorMessageEmail() }}</div>
-      }
-    </div>
-    <div class="form-field">
-      <label for="input-phone">Telefone</label>
-      <input
-        type="text"
-        id="input-phone"
-        [formControl]="phone"
-        [mask]="'(00) 00000-0000'"
-        placeholder="(00) 00000-0000"
-      />
-    </div>
-    <div class="lgpd">
-      <input
-        type="checkbox"
-        id="aceiteTermos"
-        name="aceiteTermos"
-        [formControl]="aceiteTermos"
-        required
-        (change)="toggleButton()"
-      />
-      <label for="aceiteTermos">
-        Li e aceito integralmente os
-        <a
-          href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm"
-          target="_blank"
-          >Termos de Serviço</a
-        >
-        e a
-        <a
-          href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm/"
-          target="_blank"
-          >Política de Privacidade</a
-        >.
-      </label>
-      @if (aceiteTermos.invalid) {
-      <div class="error-message">{{ errorMessageAceiteTermos() }}</div>
-      }
-    </div>
-
-    <button type="submit" [disabled]="createExpertFormGroup.invalid" class="btn-cadastrar">
-      @if (isLoading()) {
-      <div class="spinner"></div>
-      } @else { Cadastrar }
-    </button>
-  </form>
-</section>

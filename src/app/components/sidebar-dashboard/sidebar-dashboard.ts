@@ -40,6 +40,6 @@ export class SidebarDashboard {
   user = {
     name: 'Jane Doe',
     title: 'Product Designer',
-    avatarUrl: 'https://via.placeholder.com/150/00FFFF/FFFFFF?text=JD',
+    avatarUrl: 'https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_1280.png',
   };
 }
