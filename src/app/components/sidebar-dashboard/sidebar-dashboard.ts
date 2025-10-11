@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../services/auth';
 
@@ -25,11 +25,11 @@ export class SidebarDashboard {
   }
 
   menuItems: NavItem[] = [
-    { icon: 'home', label: 'Dashboard', route: '/dashboard' }, // Item ativo
+    { icon: 'home', label: 'Dashboard', route: '/dashboard/home' },
     { icon: 'folder', label: 'Projects', route: '/projects' },
     { icon: 'assignment', label: 'Tasks', route: '/tasks' },
     { icon: 'bar_chart', label: 'Reports', route: '/reports' },
-    { icon: 'group', label: 'Users', route: '/users' },
+    { icon: 'group', label: 'Funcionários', route: '/dashboard/expert' },
   ];
 
   // Itens de navegação secundários (Rodapé/Ajustes)

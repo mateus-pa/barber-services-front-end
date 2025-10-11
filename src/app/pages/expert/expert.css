@@ -1,0 +1,16 @@
+.container {
+  flex: 1;
+  display: flex;
+  align-items: start;
+  background-color: #c5c5c5;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+app-sidebar-dashboard {
+  margin-top: 3.5rem;
+}

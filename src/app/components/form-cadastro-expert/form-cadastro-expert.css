@@ -1,0 +1,242 @@
+::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.cadastro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  padding: 0 2.5rem;
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--marrom-intermediario);
+  box-shadow: 0 4px 6px var(--marrom-escuro);
+  border-radius: 10px;
+  margin: 5rem 0;
+  width: 450px;
+  gap: 1.875rem;
+}
+
+form {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0 2.5rem;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+h2 {
+  text-align: center;
+  color: #fff;
+  margin-top: 1.875rem;
+  font-family: Var(--fonte-secundaria);
+  font-weight: 700;
+}
+
+.btn-cadastrar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.125rem;
+  background-color: var(--marrom-claro);
+  box-shadow: 0 2px 4px var(--marrom-intermediario);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-cadastrar:hover {
+  background-color: var(--marrom-intermediario);
+  box-shadow: 0 4px 6px var(--marrom-escuro);
+}
+
+.btn-cadastrar:active {
+  background-color: var(--marrom-intermediario);
+}
+
+.form-field {
+  position: relative;
+  width: 100%;
+  color: #e1e1e1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: inherit;
+}
+
+.text-input {
+  width: 100%;
+  padding: 10px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--marrom-intermediario);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: var(--marrom-muito-claro);
+}
+
+.text-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.error-message {
+  font-size: 0.75rem;
+  color: #ff4081;
+  margin-top: 4px;
+}
+
+.text-input {
+  padding-right: 40px;
+  width: 100%;
+}
+
+.lgpd {
+  text-align: left;
+  margin-bottom: 1.875rem;
+  margin-top: 0.25rem;
+}
+
+.lgpd label {
+  color: #b8b8b8;
+  font-size: 0.95rem;
+}
+
+.lgpd label {
+  display: inline;
+  margin-left: 5px;
+}
+
+.lgpd input[type='checkbox'] {
+  transform: scale(1.1);
+  vertical-align: middle;
+}
+
+.lgpd a {
+  color: var(--marrom-muito-claro);
+  font-weight: bold;
+  transition: all 0.3s ease;
+  word-break: break-word;
+}
+
+.lgpd a:hover {
+  color: var(--marrom-claro);
+  text-decoration: underline;
+}
+
+.lgpd a:active {
+  color: var(--marrom-intermediario);
+}
+
+.spinner {
+  border: 4px solid var(--marrom-muito-claro);
+  border-top: 4px solid var(--marrom-escuro);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .cadastro-container {
+    width: 90%;
+    max-width: 450px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    gap: 1.25rem;
+  }
+
+  form {
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .form-field label {
+    font-size: 0.85rem;
+  }
+
+  .text-input {
+    font-size: 0.95rem;
+  }
+
+  .lgpd {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    margin-top: 0;
+  }
+
+  .lgpd input[type='checkbox'] {
+    flex-shrink: 0;
+    transform: scale(1);
+    margin-top: 2px;
+  }
+
+  .lgpd label {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    display: block;
+  }
+
+  .btn-cadastrar {
+    font-size: 1rem;
+    padding: 0.6rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .cadastro-container {
+    padding: 0 0.5rem;
+  }
+
+  form {
+    padding: 0 0.5rem;
+  }
+
+  .lgpd a {
+    overflow-wrap: break-word;
+  }
+}

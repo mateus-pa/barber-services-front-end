@@ -85,7 +85,7 @@ export class FormLogin implements OnInit {
           const token = user.token;
           sessionStorage.setItem('authToken', token);
           this.isLoading.set(false);
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard/home']);
         },
         error: (err) => {
           console.error('Erro ao fazer login:', err);
