@@ -102,6 +102,7 @@
   font-weight: 600;
   font-size: 1em;
   color: white;
+  transition: all 0.3s ease-in-out;
 }
 
 .user-info .title {
@@ -114,12 +115,14 @@
   background-color: var(--marrom-intermediario);
   padding: 5px;
   border-radius: 50%;
-  transition: color 0.3s, background-color 0.3s;
+  border: 2px solid var(--marrom-muito-claro);
+  transition: all 0.3s ease-in-out;
 }
 
 .logout-icon:hover {
   background-color: var(--marrom-escuro);
   color: var(--marrom-muito-claro);
+  border-color: var(--marrom-claro);
 }
 
 @media (max-width: 768px) {

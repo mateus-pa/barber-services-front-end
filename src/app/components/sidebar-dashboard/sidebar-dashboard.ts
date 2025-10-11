@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../services/auth';
 
@@ -17,8 +17,26 @@ interface NavItem {
   templateUrl: './sidebar-dashboard.html',
   styleUrls: ['./sidebar-dashboard.css'],
 })
-export class SidebarDashboard {
+export class SidebarDashboard implements OnInit {
+  user = {
+    name: 'Convidado',
+    title: 'AgendArte Admin',
+    avatarUrl: 'https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_1280.png',
+  };
+
   constructor(private authService: AuthService) {}
+
+  ngOnInit(): void {
+    this.loadUserData();
+  }
+
+  loadUserData(): void {
+    const loggedInUser = this.authService.getUserData();
+
+    if (loggedInUser && loggedInUser.name) {
+      this.user.name = loggedInUser.name;
+    }
+  }
 
   logoutBtn() {
     this.authService.logout();
@@ -32,14 +50,8 @@ export class SidebarDashboard {
     { icon: 'group', label: 'Funcionários', route: '/dashboard/expert' },
   ];
 
-  // Itens de navegação secundários (Rodapé/Ajustes)
   secondaryItems: NavItem[] = [
     { icon: 'settings', label: 'Settings', route: '/settings' },
     { icon: 'help_outline', label: 'Help', route: '/help' },
   ];
-  user = {
-    name: 'Jane Doe',
-    title: 'Product Designer',
-    avatarUrl: 'https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_1280.png',
-  };
 }

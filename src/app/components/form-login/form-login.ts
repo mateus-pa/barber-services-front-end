@@ -77,13 +77,18 @@ export class FormLogin implements OnInit {
     if (this.loginFormGroup.valid) {
       this.isLoading.set(true);
       const dados: LoginPayload = this.loginFormGroup.value;
-      console.log(dados);
       this.authService.login(dados).subscribe({
-        next: (user) => {
-          console.log('Login bem-sucedido:', user);
+        next: (response) => {
           this.showLoginError.set(false);
-          const token = user.token;
+
+          const user = response.user;
+          const token = response.token;
+
+          const userData = { id: user.id, name: user.name, email: user.email };
+
           sessionStorage.setItem('authToken', token);
+          sessionStorage.setItem('userData', JSON.stringify(userData));
+
           this.isLoading.set(false);
           this.router.navigate(['/dashboard/home']);
         },
