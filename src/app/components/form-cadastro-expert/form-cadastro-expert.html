@@ -1,7 +1,7 @@
-@if (isVisible) {
-<div class="modal-overlay" (click)="closeModal()">
+@if (visible) {
+<div class="modal-overlay">
   <div class="modal-content" (click)="$event.stopPropagation()">
-    <button class="close-button" (click)="closeModal()">&times;</button>
+    <button class="close-button" (click)="fecharModal()">&times;</button>
 
     <section class="cadastro-container">
       <h2>Cadastre seu funcionário</h2>
@@ -45,6 +45,7 @@
           <input
             type="text"
             id="input-phone"
+            class="text-input"
             [formControl]="phone"
             [mask]="'(00) 00000-0000'"
             placeholder="(00) 00000-0000"

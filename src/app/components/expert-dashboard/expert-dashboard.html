@@ -2,15 +2,15 @@
   <div class="header">
     <h2>Funcionários da Barbearia</h2>
 
-    <button class="add-button" (click)="addEmployee()">
-      <span class="icon">+</span> Adicionar Funcionário
+    <button class="add-button" (click)="abrirCadastroExpert()">
+      <span class="icon notranslate">+</span> Adicionar Funcionário
     </button>
   </div>
 
   <div class="content">
     @if (isLoading()) {
     <div class="loading">Carregando lista de funcionários...</div>
-    } @else if (employees().length > 0) {
+    } @else if (experts().length > 0) {
     <div class="table-container">
       <table>
         <thead>
@@ -25,27 +25,27 @@
           </tr>
         </thead>
         <tbody>
-          @for (employee of employees(); track employee.id) {
+          @for (expert of experts(); track expert.id) {
           <tr>
-            <td>{{ employee.id }}</td>
-            <td>{{ employee.name }}</td>
-            <td>{{ employee.phone }}</td>
-            <td>{{ employee.email }}</td>
+            <td>{{ expert.id }}</td>
+            <td>{{ expert.name }}</td>
+            <td>{{ expert.phone }}</td>
+            <td>{{ expert.email }}</td>
 
             <td class="actions-col">
-              <button class="action-button queue-button" (click)="viewQueue(employee.id)">
+              <button class="action-button queue-button" (click)="viewQueue(expert.id)">
                 Ver Fila
               </button>
             </td>
 
             <td class="actions-col">
-              <button class="action-button update-button" (click)="updateEmployee(employee.id)">
+              <button class="action-button update-button" (click)="updateExpert(expert.id)">
                 Atualizar
               </button>
             </td>
 
             <td class="actions-col">
-              <button class="action-button remove-button" (click)="removeEmployee(employee.id)">
+              <button class="action-button remove-button" (click)="removeExpert(expert.id)">
                 Remover
               </button>
             </td>
@@ -61,3 +61,6 @@
     }
   </div>
 </section>
+
+<app-form-cadastro-expert [visible]="modalAberto" (close)="lidarComFechamento($event)">
+</app-form-cadastro-expert>

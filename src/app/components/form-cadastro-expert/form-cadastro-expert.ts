@@ -8,7 +8,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { NgxMaskDirective } from 'ngx-mask';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { merge } from 'rxjs';
 import { Expert } from '../../models/expert.model';
 import { expertService } from '../../services/expert';
@@ -23,13 +23,12 @@ import { ErroModalCreateAccount } from '../erro-modal-create-account/erro-modal-
     ReactiveFormsModule,
     ErroModalCreateAccount,
   ],
+  providers: [provideNgxMask()],
   standalone: true,
   templateUrl: './form-cadastro-expert.html',
   styleUrl: './form-cadastro-expert.css',
 })
 export class FormCadastroExpert {
-  @Input() isVisible: boolean = false;
-  @Output() closed = new EventEmitter<void>();
   protected readonly value = signal('');
 
   ngOnInit(): void {}
@@ -46,8 +45,11 @@ export class FormCadastroExpert {
   nome = this.createExpertFormGroup.get('nome') as FormControl;
   aceiteTermos = this.createExpertFormGroup.get('aceiteTermos') as FormControl;
 
-  closeModal(): void {
-    this.closed.emit();
+  @Input() visible: boolean = false;
+  @Output() close = new EventEmitter<any>();
+
+  fecharModal(result: any = null): void {
+    this.close.emit(result);
   }
 
   toggleButton(): void {}
@@ -114,13 +116,14 @@ export class FormCadastroExpert {
         email: this.createExpertFormGroup.get('email')?.value,
         phone: this.createExpertFormGroup.get('phone')?.value,
       };
+
+      console.log(dados);
       this.expertService.createExpert(dados).subscribe({
         next: (user) => {
           console.log('Funcionário cadastrado com sucesso:', user);
           this.showCreateAccountError.set(false);
           this.isLoading.set(false);
-          // Opcional: Fechar o modal após sucesso
-          this.closeModal();
+          this.fecharModal(user);
         },
         error: (err) => {
           console.error('Erro ao cadastrar funcionário:', err);
