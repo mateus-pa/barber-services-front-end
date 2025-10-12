@@ -117,7 +117,6 @@ export class FormCadastroExpert {
         phone: this.createExpertFormGroup.get('phone')?.value,
       };
 
-      console.log(dados);
       this.expertService.createExpert(dados).subscribe({
         next: (user) => {
           console.log('Funcionário cadastrado com sucesso:', user);
