@@ -4,12 +4,17 @@
   justify-content: space-between;
   align-items: center;
   background-color: #c5c5c5;
+  align-items: stretch;
 }
 
 .page-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+app-header {
+  margin-top: 3.6rem;
 }
 
 app-sidebar-dashboard {
