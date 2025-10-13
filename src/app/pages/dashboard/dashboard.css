@@ -1,8 +1,10 @@
 .container {
   flex: 1;
   display: flex;
-  align-items: start;
+  justify-content: space-between;
+  align-items: center;
   background-color: #c5c5c5;
+  align-items: stretch;
 }
 
 .page-wrapper {
@@ -11,7 +13,10 @@
   min-height: 100vh;
 }
 
-app-queue-dashboard {
-  padding: 1rem;
-  margin-top: 3.5rem;
+app-header {
+  margin-top: 3.6rem;
+}
+
+app-sidebar-dashboard {
+  text-align: start;
 }
