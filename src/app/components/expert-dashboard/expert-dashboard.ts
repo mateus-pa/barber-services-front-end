@@ -60,20 +60,27 @@ export class ExpertDashboard implements OnInit {
     }
   }
 
-  viewQueue(expertId: number): void {
+  viewQueue(expertId: string): void {
     console.log(`Navegar para a fila do Funcionário ID: ${expertId}`);
     this.router.navigate(['/dashboard/expert/queue', expertId]);
   }
 
-  updateExpert(expertId: number): void {
+  updateExpert(expertId: string): void {
     console.log(`Abrir modal/página para atualizar Funcionário ID: ${expertId}`);
     alert(`Ação: Atualizar Funcionário ID ${expertId}`);
   }
 
-  removeExpert(expertId: number): void {
+  removeExpert(expertId: string): void {
     if (confirm(`Tem certeza que deseja remover o funcionário ID ${expertId}?`)) {
-      console.log(`Chamando API para remover Funcionário ID: ${expertId}`); // **AQUI VOCÊ CHAMARIA O MÉTODO DO SERVICE PARA REMOVER** // Após a remoção bem-sucedida, chame this.fetchExperts();
-      alert(`Ação: Remover Funcionário ID ${expertId}`);
+      console.log(`Chamando API para remover Funcionário ID: ${expertId}`);
+      this.expertService.removeExpert(expertId.toString()).subscribe({
+        next: () => {
+          this.fetchExperts();
+        },
+        error: (err) => {
+          console.error('Erro ao remover expert:', err);
+        },
+      });
     }
   }
 }

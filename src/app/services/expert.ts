@@ -17,4 +17,8 @@ export class expertService {
   getExperts(): Observable<ExpertFull[]> {
     return this.http.get<ExpertFull[]>(environment.apiUrl + '/experts');
   }
+
+  removeExpert(id: string): Observable<void> {
+    return this.http.delete<void>(`${environment.apiUrl}/experts/${id}`);
+  }
 }
