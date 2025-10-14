@@ -124,7 +124,6 @@ export class FormCadastro {
       };
       this.userService.createAccount(dados).subscribe({
         next: (user) => {
-          console.log('Conta criada com sucesso:', user);
           this.showCreateAccountError.set(false);
           this.isLoading.set(false);
           this.router.navigate(['/login']);
