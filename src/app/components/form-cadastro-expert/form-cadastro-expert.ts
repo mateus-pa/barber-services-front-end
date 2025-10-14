@@ -11,7 +11,7 @@ import {
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { merge } from 'rxjs';
 import { Expert } from '../../models/expert.model';
-import { expertService } from '../../services/expert';
+import { ExpertService } from '../../services/expert';
 import { ErroModalCreateAccount } from '../erro-modal-create-account/erro-modal-create-account';
 
 @Component({
@@ -57,7 +57,7 @@ export class FormCadastroExpert {
     this.value.set((event.target as HTMLInputElement).value);
   }
 
-  constructor(private expertService: expertService) {
+  constructor(private expertService: ExpertService) {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateErrorMessageEmail());
@@ -119,7 +119,6 @@ export class FormCadastroExpert {
 
       this.expertService.createExpert(dados).subscribe({
         next: (user) => {
-          console.log('Funcionário cadastrado com sucesso:', user);
           this.showCreateAccountError.set(false);
           this.isLoading.set(false);
           this.fecharModal(user);
@@ -127,7 +126,7 @@ export class FormCadastroExpert {
         error: (err) => {
           console.error('Erro ao cadastrar funcionário:', err);
           this.errorMessageCreateAccount.set(
-            err.error.error ? err.error.error : 'Falha na comunicação com o servidor'
+            err.error?.message || 'Falha na comunicação com o servidor'
           );
           this.showCreateAccountError.set(true);
           this.isLoading.set(false);

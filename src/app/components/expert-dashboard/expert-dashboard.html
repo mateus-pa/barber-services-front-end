@@ -64,3 +64,10 @@
 
 <app-form-cadastro-expert [visible]="modalAberto" (close)="lidarComFechamento($event)">
 </app-form-cadastro-expert>
+
+<app-form-atualizar-expert
+  [visible]="modalAtualizarAberto()"
+  [expertData]="expertParaAtualizar()"
+  (close)="lidarComFechamentoAtualizacao($event)"
+>
+</app-form-atualizar-expert>

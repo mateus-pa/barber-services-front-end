@@ -7,7 +7,7 @@ import { Expert, ExpertFull } from '../models/expert.model';
 @Injectable({
   providedIn: 'root',
 })
-export class expertService {
+export class ExpertService {
   constructor(private http: HttpClient) {}
 
   createExpert(payload: Expert): Observable<Expert> {
@@ -20,5 +20,9 @@ export class expertService {
 
   removeExpert(id: string): Observable<void> {
     return this.http.delete<void>(`${environment.apiUrl}/experts/${id}`);
+  }
+
+  updateExpert(id: string, payload: Partial<Expert>): Observable<void> {
+    return this.http.patch<void>(`${environment.apiUrl}/experts/${id}`, payload);
   }
 }

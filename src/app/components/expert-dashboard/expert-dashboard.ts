@@ -3,13 +3,14 @@ import { Component, effect, OnInit, signal } from '@angular/core';
 import { Router } from '@angular/router';
 // 1. Importar o ExpertService
 import { ExpertFull } from '../../models/expert.model';
-import { expertService } from '../../services/expert';
+import { ExpertService } from '../../services/expert';
+import { FormAtualizarExpert } from '../form-atualizar-expert/form-atualizar-expert';
 import { FormCadastroExpert } from '../form-cadastro-expert/form-cadastro-expert';
 
 // 2. Componente Standalone
 @Component({
   selector: 'app-expert-dashboard',
-  imports: [CommonModule, FormCadastroExpert],
+  imports: [CommonModule, FormCadastroExpert, FormAtualizarExpert],
   standalone: true,
   templateUrl: './expert-dashboard.html',
   styleUrl: './expert-dashboard.css',
@@ -20,7 +21,7 @@ export class ExpertDashboard implements OnInit {
 
   modalAberto: boolean = false;
 
-  constructor(private router: Router, private expertService: expertService) {
+  constructor(private router: Router, private expertService: ExpertService) {
     effect(() => {
       console.log(`Lista de Funcionários atualizada. Total: ${this.experts().length}`);
     });
@@ -60,14 +61,38 @@ export class ExpertDashboard implements OnInit {
     }
   }
 
+  modalCadastroAberto = signal(false);
+
+  modalAtualizarAberto = signal(false);
+
+  expertParaAtualizar = signal<ExpertFull | null>(null);
+
+  updateExpert(expertId: string): void {
+    const expert = this.experts().find((e) => e.id === expertId);
+
+    if (expert) {
+      this.expertParaAtualizar.set(expert);
+      this.modalAtualizarAberto.set(true);
+    } else {
+      console.error(`Funcionário com ID ${expertId} não encontrado.`);
+    }
+  }
+
+  lidarComFechamentoAtualizacao(updatedExpert: ExpertFull | null): void {
+    this.modalAtualizarAberto.set(false);
+    this.expertParaAtualizar.set(null);
+
+    if (updatedExpert) {
+      this.experts.update((experts) =>
+        experts.map((e) => (e.id === updatedExpert.id ? updatedExpert : e))
+      );
+      alert(`Funcionário ${updatedExpert.name} atualizado com sucesso!`);
+    }
+  }
+
   viewQueue(expertId: string): void {
     console.log(`Navegar para a fila do Funcionário ID: ${expertId}`);
     this.router.navigate(['/dashboard/expert/queue', expertId]);
-  }
-
-  updateExpert(expertId: string): void {
-    console.log(`Abrir modal/página para atualizar Funcionário ID: ${expertId}`);
-    alert(`Ação: Atualizar Funcionário ID ${expertId}`);
   }
 
   removeExpert(expertId: string): void {
