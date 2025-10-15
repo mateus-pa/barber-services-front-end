@@ -13,7 +13,20 @@
 
     <ul class="nav-list">
       <li *ngFor="let item of secondaryItems" class="nav-item">
-        <a [routerLink]="item.route" routerLinkActive="active-link-style" class="nav-link">
+        <a
+          *ngIf="item.label === 'Settings'"
+          (click)="openSettingsModal()"
+          class="nav-link cursor-pointer"
+        >
+          <span class="material-icons notranslate">{{ item.icon }}</span>
+          <span class="nav-label">{{ item.label }}</span>
+        </a>
+        <a
+          *ngIf="item.label !== 'Settings'"
+          [routerLink]="item.route"
+          routerLinkActive="active-link-style"
+          class="nav-link"
+        >
           <span class="material-icons notranslate">{{ item.icon }}</span>
           <span class="nav-label">{{ item.label }}</span>
         </a>
@@ -29,9 +42,11 @@
         <span class="name">{{ user.name }}</span>
         <span class="title">{{ user.title }}</span>
       </div>
-      <button (click)="logoutBtn()" class="logout-icon" title="Sign Out">
+      <button (click)="logoutBtn()" class="logout-icon" title="Sair">
         <span class="material-icons notranslate">logout</span>
       </button>
     </div>
   </div>
 </div>
+
+<app-settings-modal *ngIf="showSettingsModal" (close)="closeSettingsModal()"> </app-settings-modal>

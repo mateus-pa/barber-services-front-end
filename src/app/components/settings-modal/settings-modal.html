@@ -1,0 +1,71 @@
+<div class="modal-overlay" (click)="closeModal()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3 class="modal-title">
+        <span class="material-icons modal-icon">settings</span>
+        Configurações
+      </h3>
+      <button (click)="closeModal()" class="modal-close-btn">
+        <span class="material-icons">close</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <div class="setting-section profile-section">
+        <div class="section-info">
+          <h4 class="section-title">Meu Perfil</h4>
+          <p class="section-description">Altere seus dados pessoais e senha.</p>
+        </div>
+        <button (click)="goToProfile()" class="action-btn primary-btn">
+          <span class="material-icons btn-icon">person</span>
+          Acessar
+        </button>
+      </div>
+
+      <div class="setting-section delete-section">
+        <div *ngIf="!showDeleteConfirm">
+          <h4 class="section-title delete-title">
+            <span class="material-icons delete-icon">delete_forever</span>
+            Exclusão de Conta
+          </h4>
+          <p class="section-description delete-description">
+            Esta ação é permanente e irreversível.
+          </p>
+
+          <button
+            (click)="confirmDelete()"
+            class="action-btn danger-btn full-width-btn"
+            [disabled]="isDeleting"
+          >
+            <span *ngIf="!isDeleting">Solicitar Exclusão</span>
+            <span *ngIf="isDeleting" class="loading-state">
+              <div class="spinner"></div>
+              Processando...
+            </span>
+          </button>
+        </div>
+
+        <div *ngIf="showDeleteConfirm">
+          <h4 class="section-title delete-confirm-title">Confirma a exclusão?</h4>
+          <p class="section-description delete-description">Todos os seus dados serão apagados.</p>
+          <div class="action-group">
+            <button (click)="cancelDelete()" class="action-btn secondary-btn flex-btn">
+              Cancelar
+            </button>
+            <button
+              (click)="handleDeleteAccount()"
+              class="action-btn danger-btn flex-btn"
+              [disabled]="isDeleting"
+            >
+              <span *ngIf="!isDeleting">Sim, excluir</span>
+              <span *ngIf="isDeleting" class="loading-state">
+                <div class="spinner"></div>
+                Processando...
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

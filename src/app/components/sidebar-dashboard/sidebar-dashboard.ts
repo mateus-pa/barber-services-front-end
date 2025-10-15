@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../services/auth';
+import { SettingsModal } from '../settings-modal/settings-modal';
 
 interface NavItem {
   icon: string;
@@ -13,7 +14,7 @@ interface NavItem {
 @Component({
   selector: 'app-sidebar-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive],
+  imports: [CommonModule, RouterLink, RouterLinkActive, SettingsModal],
   templateUrl: './sidebar-dashboard.html',
   styleUrls: ['./sidebar-dashboard.css'],
 })
@@ -51,7 +52,17 @@ export class SidebarDashboard implements OnInit {
   ];
 
   secondaryItems: NavItem[] = [
-    { icon: 'settings', label: 'Settings', route: '/settings' },
+    { icon: 'settings', label: 'Settings', route: '' },
     { icon: 'help_outline', label: 'Help', route: '/help' },
   ];
+
+  showSettingsModal: boolean = false;
+
+  openSettingsModal(): void {
+    this.showSettingsModal = true;
+  }
+
+  closeSettingsModal(): void {
+    this.showSettingsModal = false;
+  }
 }

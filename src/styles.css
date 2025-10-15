@@ -15,6 +15,11 @@
   --cinza-claro: #d8d7d3;
   --ouro-destaque: #b8860b;
   --bege-destaque: #ecddd1;
+
+  --cor-perfil-bg: var(--marrom-muito-claro);
+  --cor-perfil-border: var(--marrom-claro);
+  --cor-alerta: #b22222;
+  --cor-alerta-fundo: #fffafa;
 }
 
 * {
