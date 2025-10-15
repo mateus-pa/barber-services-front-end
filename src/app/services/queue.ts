@@ -14,11 +14,11 @@ export class QueueService {
   }
 
   marcarAtendido(customerId: number): Observable<void> {
-    return this.http.patch<void>(`${environment.apiUrl}/queuecustomers/${customerId}/attended`, {});
+    return this.http.patch<void>(`${environment.apiUrl}/queuescustomers/${customerId}`, {});
   }
 
   removerDaFila(customerId: number): Observable<void> {
-    return this.http.delete<void>(`${environment.apiUrl}/queuecustomers/${customerId}`);
+    return this.http.delete<void>(`${environment.apiUrl}/queuescustomers/${customerId}`);
   }
 
   adicionarCliente(expertId: string, cliente: any): Observable<void> {
