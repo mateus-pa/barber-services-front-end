@@ -6,6 +6,12 @@ export interface User {
   token: string;
 }
 
+export interface UserFull {
+  id: string;
+  name: string;
+  email: string;
+}
+
 export interface UserLoginResponse {
   user: User;
   token: string;

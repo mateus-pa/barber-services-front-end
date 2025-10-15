@@ -1,0 +1,62 @@
+@if(visible) {
+<div class="modal-overlay">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-button" (click)="fecharModal()">&times;</button>
+
+    <section class="cadastro-container">
+      <h2>Atualizar Usuário</h2>
+
+      <form [formGroup]="updateUserFormGroup" (ngSubmit)="onSubmit()">
+        <div class="form-field">
+          <label for="input-name">Nome</label>
+          <input
+            id="input-name"
+            type="text"
+            class="text-input"
+            #input
+            maxlength="13"
+            placeholder="Ex. Mateus"
+            [formControl]="nome"
+            required
+            (input)="onInput($event)"
+          />
+          @if (nome.invalid && (nome.touched || nome.dirty)) {
+          <div class="error-message">{{ errorMessageNome() }}</div>
+          }
+        </div>
+
+        <div class="form-field">
+          <label for="input-email">Email</label>
+          <input
+            id="input-email"
+            type="email"
+            class="text-input"
+            placeholder="email@example.com"
+            [formControl]="email"
+            (blur)="updateErrorMessageEmail()"
+            required
+          />
+          @if (email.invalid && (email.touched || email.dirty)) {
+          <div class="error-message">{{ errorMessageEmail() }}</div>
+          }
+        </div>
+
+        <button
+          type="submit"
+          [disabled]="updateUserFormGroup.invalid || isLoading() || updateUserFormGroup.pristine"
+          class="btn-cadastrar"
+        >
+          @if (isLoading()) {
+          <div class="spinner"></div>
+          } @else { Atualizar }
+        </button>
+      </form>
+    </section>
+  </div>
+</div>
+} @if (showUpdateError()) {
+<app-erro-modal-create-account
+  [message]="errorMessageUpdate()"
+  (closed)="showUpdateError.set(false)"
+/>
+}

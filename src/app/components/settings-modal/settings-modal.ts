@@ -16,6 +16,7 @@ export class SettingsModal {
   @Input() visible: boolean = false;
 
   @Output() close = new EventEmitter<void>();
+  @Output() openProfile = new EventEmitter<void>();
 
   showDeleteConfirm: boolean = false;
   isDeleting: boolean = false;
@@ -34,7 +35,7 @@ export class SettingsModal {
 
   goToProfile(): void {
     this.closeModal();
-    this.router.navigate(['/dashboard/profile-edit']);
+    this.openProfile.emit();
   }
 
   confirmDelete(): void {

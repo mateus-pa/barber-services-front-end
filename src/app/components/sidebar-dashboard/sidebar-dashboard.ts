@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { UserFull } from '../../models/user.model';
 import { AuthService } from '../../services/auth';
+import { FormAtualizarUser } from '../form-atualizar-user/form-atualizar-user';
 import { SettingsModal } from '../settings-modal/settings-modal';
 
 interface NavItem {
@@ -14,13 +16,15 @@ interface NavItem {
 @Component({
   selector: 'app-sidebar-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, SettingsModal],
+  imports: [CommonModule, RouterLink, RouterLinkActive, SettingsModal, FormAtualizarUser],
   templateUrl: './sidebar-dashboard.html',
   styleUrls: ['./sidebar-dashboard.css'],
 })
 export class SidebarDashboard implements OnInit {
-  user = {
+  user: UserFull & { title: string; avatarUrl: string } = {
+    id: '',
     name: 'Convidado',
+    email: '',
     title: 'AgendArte Admin',
     avatarUrl: 'https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_1280.png',
   };
@@ -36,6 +40,8 @@ export class SidebarDashboard implements OnInit {
 
     if (loggedInUser && loggedInUser.name) {
       this.user.name = loggedInUser.name;
+      this.user.email = loggedInUser.email;
+      this.user.id = loggedInUser.id;
     }
   }
 
@@ -57,6 +63,7 @@ export class SidebarDashboard implements OnInit {
   ];
 
   showSettingsModal: boolean = false;
+  showProfileModal: boolean = false;
 
   openSettingsModal(): void {
     this.showSettingsModal = true;
@@ -64,5 +71,19 @@ export class SidebarDashboard implements OnInit {
 
   closeSettingsModal(): void {
     this.showSettingsModal = false;
+  }
+
+  openProfileModalFromSettings(): void {
+    this.closeSettingsModal();
+    this.showProfileModal = true;
+  }
+
+  onProfileModalClose(updatedUser: UserFull | null): void {
+    this.showProfileModal = false;
+
+    if (updatedUser) {
+      this.user.name = updatedUser.name;
+      this.user.email = updatedUser.email;
+    }
   }
 }

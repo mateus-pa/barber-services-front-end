@@ -9,6 +9,11 @@ export interface CreateAccountPayload {
   password: string;
 }
 
+export interface UpdateAccountPayload {
+  name?: string;
+  email?: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -17,6 +22,13 @@ export class UserService {
 
   createAccount(payload: CreateAccountPayload): Observable<CreateAccountPayload> {
     return this.http.post<CreateAccountPayload>(environment.apiUrl + '/users', payload);
+  }
+
+  updateAccount(
+    userId: string,
+    payload: Partial<UpdateAccountPayload>
+  ): Observable<UpdateAccountPayload> {
+    return this.http.put<UpdateAccountPayload>(`${environment.apiUrl}/users`, payload);
   }
 
   deleteAccount(userId: string): Observable<void> {

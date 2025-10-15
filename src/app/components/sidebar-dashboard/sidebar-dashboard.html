@@ -49,4 +49,14 @@
   </div>
 </div>
 
-<app-settings-modal *ngIf="showSettingsModal" (close)="closeSettingsModal()"> </app-settings-modal>
+<app-settings-modal
+  *ngIf="showSettingsModal"
+  (close)="closeSettingsModal()"
+  (openProfile)="openProfileModalFromSettings()"
+></app-settings-modal>
+<app-form-atualizar-user
+  *ngIf="showProfileModal"
+  [visible]="showProfileModal"
+  [userData]="user"
+  (close)="onProfileModalClose($event)"
+></app-form-atualizar-user>

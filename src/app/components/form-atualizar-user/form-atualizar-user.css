@@ -1,0 +1,242 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  overflow-y: auto;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+.modal-content {
+  position: relative;
+  padding: 0;
+  margin: auto;
+  max-width: 450px;
+  width: 90%;
+  background: transparent;
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--marrom-intermediario);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  min-height: min-content;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1001;
+  transition: color 0.2s;
+}
+
+.close-button:hover {
+  color: var(--marrom-claro);
+}
+
+.cadastro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 0;
+  width: 100%;
+  padding: 0 2.5rem;
+  gap: 1.875rem;
+  box-sizing: border-box;
+}
+
+::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+form {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0 0;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+}
+
+h2 {
+  text-align: center;
+  color: #fff;
+  margin-top: 1.875rem;
+  font-family: Var(--fonte-secundaria);
+  font-weight: 700;
+}
+
+.btn-cadastrar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.125rem;
+  background-color: var(--marrom-claro);
+  box-shadow: 0 2px 4px var(--marrom-intermediario);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 1.875rem;
+}
+
+.btn-cadastrar:hover {
+  background-color: var(--marrom-intermediario);
+  box-shadow: 0 4px 6px var(--marrom-escuro);
+}
+
+.btn-cadastrar:active {
+  background-color: var(--marrom-intermediario);
+}
+
+.form-field {
+  position: relative;
+  width: 100%;
+  color: #e1e1e1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: inherit;
+}
+
+.text-input {
+  width: 100%;
+  padding: 10px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--marrom-intermediario);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: var(--marrom-muito-claro);
+}
+
+.text-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.error-message {
+  font-size: 0.75rem;
+  color: #ff4081;
+  margin-top: 4px;
+}
+
+.text-input {
+  padding-right: 40px;
+  width: 100%;
+}
+
+.spinner {
+  border: 4px solid var(--marrom-muito-claro);
+  border-top: 4px solid var(--marrom-escuro);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .cadastro-container {
+    width: 100%;
+    margin: 0;
+    padding: 0 1rem;
+    gap: 1.25rem;
+  }
+
+  form {
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .form-field label {
+    font-size: 0.85rem;
+  }
+
+  .text-input {
+    font-size: 0.95rem;
+  }
+
+  .btn-cadastrar {
+    font-size: 1rem;
+    padding: 0.6rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .modal-content {
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  .modal-overlay {
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .cadastro-container {
+    padding: 0 0.5rem;
+  }
+
+  form {
+    padding: 0 0.5rem;
+  }
+}
