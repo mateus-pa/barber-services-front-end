@@ -1,0 +1,22 @@
+<h2>Adicionar Cliente à Fila</h2>
+
+<form (ngSubmit)="adicionar()">
+  <label>Nome:</label>
+  <input [(ngModel)]="cliente.name" name="name" required />
+
+  <label>Serviço:</label>
+  <input [(ngModel)]="cliente.service" name="service" required />
+
+  <label>Horário:</label>
+  <input
+    type="datetime-local"
+    [(ngModel)]="cliente.appointmentTime"
+    name="appointmentTime"
+    required
+  />
+
+  <div class="actions">
+    <button type="submit">Salvar</button>
+    <button type="button" (click)="fechar()">Cancelar</button>
+  </div>
+</form>

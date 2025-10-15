@@ -1,0 +1,56 @@
+<div class="fila-container">
+  <div class="header">
+    <h2>Fila de Atendimento</h2>
+
+    <div class="actions">
+      <label for="expertSelect">Funcionário:</label>
+      <select id="expertSelect" (change)="onSelectExpert($event)">
+        <option value="">Selecione um expert</option>
+        <option *ngFor="let expert of experts()" [value]="expert.id">
+          {{ expert.name }}
+        </option>
+      </select>
+
+      <button (click)="abrirModalAdicionarCliente()" [disabled]="!selectedExpertId()" class="btn">
+        <span class="material-icons notranslate">person_add</span>
+        Adicionar Cliente
+      </button>
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table *ngIf="queueCustomers().length > 0; else noData">
+      <thead>
+        <tr>
+          <th>Horário</th>
+          <th>Nome</th>
+          <th>Serviço</th>
+          <th>Aguardando</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of queueCustomers()">
+          <td>{{ c.appointmentTime | date : 'HH:mm' }}</td>
+          <td>{{ c.name }}</td>
+          <td>{{ c.service }}</td>
+          <td>{{ c.isAwaiting ? 'Sim' : 'Não' }}</td>
+          <td class="button-actions">
+            <button (click)="marcarAtendido(c.id)" [disabled]="!c.isAwaiting" class="btn success">
+              <span class="material-icons notranslate">check_circle</span>
+              Atendido
+            </button>
+            <button (click)="removerCliente(c.id)" class="btn danger">
+              <span class="material-icons notranslate">delete</span>
+              Remover
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noData>
+    <p class="empty">Nenhum cliente na fila.</p>
+  </ng-template>
+</div>
