@@ -21,12 +21,12 @@ import { merge } from 'rxjs';
 import { UserFull } from '../../models/user.model';
 import { AuthService } from '../../services/auth';
 import { UpdateAccountPayload, UserService } from '../../services/user';
-import { ErroModalCreateAccount } from '../erro-modal-create-account/erro-modal-create-account';
+import { ErroModalUpdateAccount } from '../erro-modal-update-account/erro-modal-update-account';
 
 @Component({
   selector: 'app-form-atualizar-user',
   standalone: true,
-  imports: [FormsModule, CommonModule, ReactiveFormsModule, ErroModalCreateAccount],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule, ErroModalUpdateAccount],
   templateUrl: './form-atualizar-user.html',
   styleUrl: './form-atualizar-user.css',
 })

@@ -20,7 +20,7 @@ import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { merge } from 'rxjs';
 import { Expert, ExpertFull } from '../../models/expert.model';
 import { ExpertService } from '../../services/expert';
-import { ErroModalCreateAccount } from '../erro-modal-create-account/erro-modal-create-account';
+import { ErroModalUpdateAccount } from '../erro-modal-update-account/erro-modal-update-account';
 
 @Component({
   selector: 'app-form-atualizar-expert',
@@ -29,7 +29,7 @@ import { ErroModalCreateAccount } from '../erro-modal-create-account/erro-modal-
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
-    ErroModalCreateAccount,
+    ErroModalUpdateAccount,
   ],
   providers: [provideNgxMask()],
   standalone: true,
