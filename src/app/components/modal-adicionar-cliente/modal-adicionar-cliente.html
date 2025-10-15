@@ -1,22 +1,31 @@
-<h2>Adicionar Cliente à Fila</h2>
+<div class="modal-content">
+  <h2>Adicionar Cliente à Fila</h2>
 
-<form (ngSubmit)="adicionar()">
-  <label>Nome:</label>
-  <input [(ngModel)]="cliente.name" name="name" required />
+  <form (ngSubmit)="adicionar()">
+    <div class="input-group">
+      <label for="name">Nome:</label>
+      <input id="name" [(ngModel)]="cliente.name" name="name" required />
+    </div>
 
-  <label>Serviço:</label>
-  <input [(ngModel)]="cliente.service" name="service" required />
+    <div class="input-group">
+      <label for="service">Serviço:</label>
+      <select id="service" [(ngModel)]="cliente.service" name="service" required>
+        <option value="" disabled selected>Selecione o serviço</option>
+        <option value="Corte máquina">Corte máquina</option>
+        <option value="Corte tesoura">Corte tesoura</option>
+        <option value="Barba">Barba</option>
+        <option value="Pé">Pé</option>
+      </select>
+    </div>
 
-  <label>Horário:</label>
-  <input
-    type="datetime-local"
-    [(ngModel)]="cliente.appointmentTime"
-    name="appointmentTime"
-    required
-  />
+    <div class="input-group">
+      <label for="time">Horário de Agendamento:</label>
+      <input id="time" type="time" [(ngModel)]="cliente.time" name="time" required />
+    </div>
 
-  <div class="actions">
-    <button type="submit">Salvar</button>
-    <button type="button" (click)="fechar()">Cancelar</button>
-  </div>
-</form>
+    <div class="actions">
+      <button type="submit" class="btn primary">Salvar</button>
+      <button type="button" class="btn secondary" (click)="fechar()">Cancelar</button>
+    </div>
+  </form>
+</div>
