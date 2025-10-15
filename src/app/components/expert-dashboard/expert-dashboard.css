@@ -26,7 +26,8 @@
 }
 
 .add-button {
-  background-color: var(--marrom-intermediario);
+  background-color: var(--marrom-claro);
+  box-shadow: 0 2px 4px var(--marrom-intermediario);
   color: white;
   border: none;
   padding: 10px 15px;
@@ -35,11 +36,12 @@
   font-weight: 600;
   display: flex;
   align-items: center;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease-in-out;
 }
 
 .add-button:hover {
-  background-color: var(--marrom-claro);
+  background-color: var(--marrom-intermediario);
+  box-shadow: 0 4px 6px var(--marrom-escuro);
 }
 
 .add-button .icon {
@@ -83,17 +85,19 @@ td {
 }
 
 .action-button {
+  box-shadow: 0 2px 4px var(--marrom-intermediario);
   border: none;
   padding: 8px 12px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 0.85rem;
   font-weight: 500;
-  transition: background-color 0.3s, opacity 0.3s;
+  transition: all 0.3s ease-in-out;
   min-width: 80px;
 }
 
 .action-button:hover {
+  box-shadow: 0 4px 6px var(--marrom-escuro);
   opacity: 0.8;
 }
 
@@ -176,8 +180,9 @@ tbody tr:hover {
   td {
     border: none;
     position: relative;
-    padding-left: 50%;
+    padding-left: 35%;
     text-align: right;
+    border-bottom: 1px solid #f0f0f0;
   }
 
   td::before {
@@ -196,7 +201,6 @@ tbody tr:hover {
     text-align: left;
     padding-top: 15px;
     padding-bottom: 15px;
-    border-top: 1px solid #f0f0f0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
