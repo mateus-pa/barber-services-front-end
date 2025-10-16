@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { UserFull } from '../../models/user.model';
 import { AuthService } from '../../services/auth';
 import { FormAtualizarUser } from '../form-atualizar-user/form-atualizar-user';
+import { ModalHelp } from '../modal-help/modal-help';
 import { SettingsModal } from '../settings-modal/settings-modal';
 
 interface NavItem {
@@ -51,9 +53,9 @@ export class SidebarDashboard implements OnInit {
 
   menuItems: NavItem[] = [
     { icon: 'home', label: 'Dashboard', route: '/dashboard/home' },
-    { icon: 'folder', label: 'Projects', route: '/projects' },
-    { icon: 'assignment', label: 'Tasks', route: '/tasks' },
-    { icon: 'bar_chart', label: 'Reports', route: '/reports' },
+    // { icon: 'folder', label: 'Projects', route: '/projects' },
+    // { icon: 'assignment', label: 'Tasks', route: '/tasks' },
+    // { icon: 'bar_chart', label: 'Reports', route: '/reports' },
     { icon: 'group', label: 'Funcionários', route: '/dashboard/expert' },
   ];
 
@@ -85,5 +87,14 @@ export class SidebarDashboard implements OnInit {
       this.user.name = updatedUser.name;
       this.user.email = updatedUser.email;
     }
+  }
+
+  private dialog = inject(MatDialog);
+
+  openHelpModal(): void {
+    this.dialog.open(ModalHelp, {
+      width: '600px',
+      maxHeight: '90vh',
+    });
   }
 }

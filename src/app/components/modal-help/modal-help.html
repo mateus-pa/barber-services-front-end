@@ -1,0 +1,58 @@
+<div class="modal-help-content">
+  <h2 class="title-primary">Guia Rápido: Gestão de Filas</h2>
+
+  <p class="intro-text">
+    Utilize este dashboard para visualizar, organizar e gerenciar os atendimentos dos profissionais
+    da barbearia de forma eficiente.
+  </p>
+
+  <section class="help-section">
+    <h3 class="title-secondary">1. Visualização da Fila</h3>
+    <ul class="list-info">
+      <li>
+        <span class="icon-indicator">#</span>
+        A ordem na lista determina a ordem de atendimento.
+      </li>
+      <li>
+        <div class="color-indicator color-agendado"></div>
+        **Agendado:** Cliente com horário marcado (indicado pelo horário ao lado do nome).
+      </li>
+      <li>
+        <div class="color-indicator color-espera"></div>
+        **Aguardando:** Cliente aguardando para ser atendido através do agendamento.
+      </li>
+    </ul>
+  </section>
+
+  <section class="help-section">
+    <h3 class="title-secondary">2. Ações Principais</h3>
+
+    <div class="action-item">
+      <p class="action-title">Adicionar Novo Cliente</p>
+      <p class="action-description">
+        Clique no botão **`+ Adicionar Cliente`**. Ao agendar um horário, a data será
+        automaticamente definida para o dia da fila atual.
+      </p>
+    </div>
+
+    <div class="action-item">
+      <p class="action-title">Marcar Atendimento</p>
+      <p class="action-description">
+        Utilize o botão de 'Atendido' ao lado do cliente para finalizar o atendimento. Isto não
+        remove o cliente da lista, mas altera seu status para não aguardando.
+      </p>
+    </div>
+
+    <div class="action-item">
+      <p class="action-title">Reorganizar a Fila</p>
+      <p class="action-description">
+        Clientes podem ser removidos da fila ao clicar no botão 'Remover' ao lado do botão
+        'Atendido'.
+      </p>
+    </div>
+  </section>
+
+  <div class="actions">
+    <button type="button" class="btn secondary" (click)="fechar()">Entendi</button>
+  </div>
+</div>

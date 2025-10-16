@@ -1,0 +1,127 @@
+.modal-help-content {
+  background-color: var(--cor-fundo-card);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  width: 100%;
+  max-width: 550px;
+  box-sizing: border-box;
+  color: var(--marrom-escuro);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.title-primary {
+  color: var(--marrom-escuro);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-align: center;
+  border-bottom: 3px solid var(--marrom-muito-claro);
+  padding-bottom: 0.5rem;
+  font-size: 1.6rem;
+}
+
+.title-secondary {
+  color: var(--marrom-intermediario);
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.intro-text {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--marrom-intermediario);
+}
+
+.help-section {
+  padding: 0 0.5rem;
+}
+
+.list-info {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.list-info li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.icon-indicator,
+.color-indicator {
+  min-width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  margin-right: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.color-indicator.color-agendado {
+  background-color: #f0c29c;
+  border: 1px solid var(--marrom-claro);
+}
+
+.color-indicator.color-espera {
+  background-color: #c0c0c0;
+  border: 1px solid #999;
+}
+
+.icon-indicator {
+  background-color: var(--marrom-intermediario);
+  color: white;
+}
+
+/* Itens de Ação */
+.action-item {
+  border-left: 3px solid var(--marrom-claro);
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.action-title {
+  font-weight: bold;
+  color: var(--marrom-escuro);
+  margin: 0 0 0.2rem 0;
+}
+
+.action-description {
+  font-size: 0.85rem;
+  margin: 0;
+  color: var(--marrom-intermediario);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 0.7rem 1.4rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+}
+
+.btn.secondary {
+  background-color: var(--marrom-claro);
+  color: white;
+}
+
+.btn.secondary:hover {
+  background-color: var(--marrom-intermediario);
+}

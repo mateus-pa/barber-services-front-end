@@ -21,8 +21,12 @@
           <span class="material-icons notranslate">{{ item.icon }}</span>
           <span class="nav-label">{{ item.label }}</span>
         </a>
+        <a *ngIf="item.label === 'Help'" (click)="openHelpModal()" class="nav-link cursor-pointer">
+          <span class="material-icons notranslate">{{ item.icon }}</span>
+          <span class="nav-label">{{ item.label }}</span>
+        </a>
         <a
-          *ngIf="item.label !== 'Settings'"
+          *ngIf="item.label !== 'Settings' && item.label !== 'Help'"
           [routerLink]="item.route"
           routerLinkActive="active-link-style"
           class="nav-link"
