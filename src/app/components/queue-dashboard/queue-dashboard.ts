@@ -23,6 +23,7 @@ export class QueueDashboard {
   experts = signal<ExpertFull[]>([]);
   selectedExpertId = signal<string | null>(null);
   queueCustomers = signal<any[]>([]);
+  createdAt = signal<string>('');
 
   ngOnInit() {
     this.loadExperts();
@@ -44,6 +45,7 @@ export class QueueDashboard {
 
     try {
       const queue = await firstValueFrom(this.queueService.getExpertQueueToday(id));
+      this.createdAt.set(queue?.createdAt || '');
       this.queueCustomers.set(queue?.queuecustomers || []);
     } catch (err) {
       console.error('Erro ao carregar fila:', err);
@@ -85,7 +87,7 @@ export class QueueDashboard {
 
     const dialogRef = this.dialog.open(ModalAdicionarCliente, {
       width: '400px',
-      data: { expertId: this.selectedExpertId() },
+      data: { expertId: this.selectedExpertId(), createdAt: this.createdAt() },
     });
 
     dialogRef.afterClosed().subscribe((added) => {

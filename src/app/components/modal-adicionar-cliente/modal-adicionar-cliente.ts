@@ -3,11 +3,12 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { firstValueFrom } from 'rxjs';
+import { CustomerPayload } from '../../models/queueCustomer.model';
 import { QueueService } from '../../services/queue';
 
 interface ModalData {
   expertId: string;
-  CreatedAt: string;
+  createdAt: string;
 }
 
 @Component({
@@ -32,27 +33,32 @@ export class ModalAdicionarCliente {
 
   async adicionar() {
     try {
-      const queueDate = new Date(this.data.CreatedAt);
+      const queueDate = new Date(this.data.createdAt);
 
-      queueDate.setHours(0, 0, 0, 0);
+      if (isNaN(queueDate.getTime())) {
+        throw new Error('Data da fila inválida (createdAt). Verifique o dado injetado no modal.');
+      }
 
       const [hours, minutes] = this.cliente.time.split(':').map(Number);
 
-      queueDate.setHours(hours, minutes, 0, 0);
-      const localOffset = queueDate.getTimezoneOffset();
+      const year = queueDate.getFullYear();
+      const month = queueDate.getMonth();
+      const day = queueDate.getDate();
 
-      const targetOffset = localOffset - this.BRAZIL_TIMEZONE_OFFSET;
+      const localDateTime = new Date(year, month, day, hours, minutes);
 
-      const targetDate = new Date(queueDate.getTime() - targetOffset * 60 * 1000);
+      const appointmentTimeISO = localDateTime.toISOString();
 
-      const appointmentTimeISO = targetDate.toISOString();
-      const clientPayload = {
+      const customerPayload: CustomerPayload = {
+        expertId: this.data.expertId,
         name: this.cliente.name,
         service: this.cliente.service,
         appointmentTime: appointmentTimeISO,
       };
 
-      await firstValueFrom(this.queueService.adicionarCliente(this.data.expertId, clientPayload));
+      console.log(customerPayload);
+
+      await firstValueFrom(this.queueService.adicionarCliente(customerPayload));
       this.dialogRef.close(true);
     } catch (err) {
       console.error('Erro ao adicionar cliente:', err);

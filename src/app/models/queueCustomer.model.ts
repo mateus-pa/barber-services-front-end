@@ -8,3 +8,10 @@ export interface QueueCustomer {
   service: string;
   isAwaiting: boolean;
 }
+
+export interface CustomerPayload {
+  expertId: string;
+  name: string;
+  service: string;
+  appointmentTime: String;
+}

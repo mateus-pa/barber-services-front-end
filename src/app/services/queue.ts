@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { CustomerPayload } from '../models/queueCustomer.model';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +22,10 @@ export class QueueService {
     return this.http.delete<void>(`${environment.apiUrl}/queuescustomers/${customerId}`);
   }
 
-  adicionarCliente(expertId: string, cliente: any): Observable<void> {
-    return this.http.post<void>(`${environment.apiUrl}/queues/${expertId}/add-customer`, cliente);
+  adicionarCliente(customerPayload: CustomerPayload): Observable<CustomerPayload> {
+    return this.http.post<CustomerPayload>(
+      `${environment.apiUrl}/queuescustomers`,
+      customerPayload
+    );
   }
 }
